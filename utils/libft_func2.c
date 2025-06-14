@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 17:59:49 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/30 14:16:15 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/12 18:53:46 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,13 @@ int	ft_strcmp(const char *s1, const char *s2)
 	size_t	i;
 
 	i = 0;
+	if (!s1 || !s2)
+	{
+		if (!s1)
+			return ((unsigned char)s2[0]);
+		else
+			return ((unsigned char)s1[0]);
+	}
 	while (s1[i] && s2[i])
 	{
 		if (s1[i] != s2[i])

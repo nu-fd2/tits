@@ -1,29 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strjoin.c                                       :+:      :+:    :+:   */
+/*   ex_cpro.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/03 17:47:37 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/12 20:01:34 by oel-mado         ###   ########.fr       */
+/*   Created: 2025/06/13 01:56:16 by oel-mado          #+#    #+#             */
+/*   Updated: 2025/06/13 02:53:45 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ex_exc.h"
 
-char	*ft_sstrjoin(char const *s1, char const *s2)
+int	ex_cpro(t_data *data, char *cmd, char **arg)
 {
-	size_t	i;
-	char	*str;
+	int		sta;
+	int		wife;
+	int		wife2;
+	pid_t	kid;
 
-	if (!s1 || !s2)
-		return (NULL);
-	i = ft_strlen(s1) + ft_strlen(s2) + 1;
-	str = ft_calloc(sizeof(char), i);
-	if (!str)
-		return (NULL);
-	ft_strlcpy(str, (char *)s1, i);
-	ft_strlcat(str, (char *)s2, i);
-	return (str);
+	sta = 0;
+	kid = fork();
+	if (kid < 0)
+		return 1;
+	if (kid == 0)
+	{
+		execv(cmd, arg);
+		return (1);
+	}
+	else
+	{
+        waitpid(kid, &sta, 0);
+		wife = WIFEXITED(sta);
+		wife2 = WEXITSTATUS(sta);
+		if (wife)
+			return (wife);
+		else if (wife2)
+			return (128 + wife2);
+	}
+	return (0);
 }

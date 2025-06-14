@@ -25,20 +25,26 @@ ex/m_env/prn_env.c \
 ex/m_env/prn_port_env.c \
 ex/m_exc/ex_rish.c \
 ex/m_exc/ex_synau.c \
+ex/m_exc/ex_cpro.c \
+ex/m_exc/ex_there.c \
 	  \
 ex/libft/ft_atoi.c \
 ex/libft/ft_itoa.c \
 ex/libft/ft_putchar_fd.c \
 ex/libft/ft_putstr_fd.c \
 ex/libft/ft_strncmp.c \
+ex/libft/ft_split.c \
+ex/libft/ft_strjoin.c \
+ex/libft/ft_strchr.c \
+ex/libft/ft_substr.c \
+ex/libft/ft_strlcat.c \
+ex/libft/ft_strlcpy.c \
 # ex/libft/ft_bzero.c \
  ex/libft/ft_calloc.c \
  ex/libft/ft_isdigit.c \
  ex/libft/ft_memset.c \
  ex/libft/ft_strcmp.c \
  ex/libft/ft_strdup.c \
- ex/libft/ft_strlcat.c \
- ex/libft/ft_strlcpy.c \
  ex/libft/ft_strlen.c \
  ex/libft/ft_strndup.c \
 	  \

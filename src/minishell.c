@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/05 12:18:31 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 01:55:59 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int main(int ac, char **av, char **env)
     signal(SIGINT, hnd_sig);
 	signal(SIGQUIT, SIG_IGN);
 
-    // atexit(t);
+    atexit(t);
     // ft_memset(&s_sig, 0, sizeof(s_sig));
     // s_sig.sa_sigaction = hnd_sig;
     // s_sig.sa_flags = SA_SIGINFO;

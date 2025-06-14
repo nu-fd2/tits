@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:47:16 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/23 20:47:09 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/12 18:46:45 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,7 @@
 
 bool is_space(char c)
 {
-	if(c == ' ' || (c >= 9 && c <= 13))
-		return true;
-	return false;
+	return(c == ' ' || (c >= 9 && c <= 13));
 }
 
 size_t	ft_strlen(const char *s)

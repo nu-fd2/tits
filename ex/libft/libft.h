@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 16:12:07 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/02 20:47:51 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 01:06:59 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@
 
 size_t		ft_strlen(const char *who);//
 size_t		ft_strlcpy(char *dst, const char *src, size_t n);//
-// size_t		ft_strlcat(char *dst, const char *src, size_t n);
+size_t		ft_strlcat(char *dst, const char *src, size_t n);//
 
 // int			ft_memcmp(const void *s1, const void *s2, size_t n);
 void		*ft_memset(void	*ptr, int n, size_t num);//
@@ -44,7 +44,7 @@ int			ft_isdigit(int c);//
 
 int			ft_strncmp(const char *s1, const char *s2, size_t n);//
 int			ft_strcmp(const char *s1, const char *s2);//
-// char		*ft_strchr(const char *str, int c);
+char		*ft_strchr(const char *str, int c);//
 // char		*ft_strrchr(const char *str, int c);
 // char		*ft_strnstr(const char *haystack, const char *needle, size_t n);
 
@@ -53,11 +53,11 @@ char		*ft_itoa(int n);//
 
 char		*ft_strdup(const char *s1);//
 // char		*ft_strndup(const char *s1, size_t n);
-// char		**ft_split(char const *s, char c);
+char		**ft_ssplit(char const *s, char c);//
 void		*ft_calloc(size_t count, size_t size);//
 
-// char		*ft_substr(char const *s, unsigned int start, size_t len);
-// char		*ft_strjoin(char const *s1, char const *s2);
+char		*ft_ssubstr(char const *s, unsigned int start, size_t len);//
+char		*ft_sstrjoin(char const *s1, char const *s2);//
 // char		*ft_strtrim(char const *s1, char const *set);
 // void		ft_striteri(char *s, void (*f)(unsigned int, char*));
 
