@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 05:18:51 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/02 18:47:16 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 20:59:15 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@
 #include <string.h>
 #include <signal.h>
 #include <stdio.h>
+#include <sys/wait.h>
 #include <readline/readline.h>
 
 #include "libft/libft.h"
@@ -37,7 +38,10 @@ typedef struct s_env t_env;
 typedef struct s_data
 {
 	int				fd;
+	int				fd2;
 	int				ex;
+	pid_t			kid;
+	char			**chr_env;
 	t_env			*env;
 }					t_data;
 

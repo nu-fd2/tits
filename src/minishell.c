@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/14 18:02:22 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 22:36:44 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ void manager(t_data *data, char *line)
     input = star_expansion(input);
     striper(input);
     shart = last_lst_creater(input);
-    lst_print2(shart);
+    // lst_print2(shart);
 
     // TS AHHHHHHH
     //fnc(shart)
@@ -65,42 +65,32 @@ static void hnd_sig(int sig)
 {
 	(void)sig;
 	write(1, "\n", 1);
-	// rl_replace_line("", 0);
+	rl_replace_line("", 0);
 	rl_on_new_line();
 	rl_redisplay();
 }
 
 int main(int ac, char **av, char **env)
 {
-    // printf("\e[1;31mam about blauw\e[0m\n");
-    // struct sigaction    s_sig;
     t_data  *data;
 
     data = ft_calloc(1, sizeof(t_data));
     data->env = int_env(env);
     data->fd = 1;
     lvl_env(data);
+    data->chr_env = int_chr_env(data);
     signal(SIGINT, hnd_sig);
 	signal(SIGQUIT, SIG_IGN);
 
     atexit(t);
-    // ft_memset(&s_sig, 0, sizeof(s_sig));
-    // s_sig.sa_sigaction = hnd_sig;
-    // s_sig.sa_flags = SA_SIGINFO;
-    // sigaction(SIGINT, &s_sig, NULL);
-    // sigaction(SIGQUIT, &s_sig, NULL);
 
-    while(1)
+    while(69)
     {
-        if(prompt_msg(data) == 0)
-        {
-            fre_env(data->env);
-            free(data);
-            return 0;
-        }
-        // printf("%s\n", line);
+        if (prompt_msg(data))
+            break;
     }
     fre_env(data->env);
+    fre_chr_env(data);
     free(data);
     return 1;
 }

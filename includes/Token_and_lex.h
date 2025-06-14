@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:27:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/05 12:18:17 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 20:32:56 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,7 +130,7 @@ size_t	ft_strlen(const char *s);
 void ft_lstfree(t_input *lst);
 bool is_space(char c);
 void	lst_print(t_input *bruh);
-int prompt_msg();
+int prompt_msg(t_data *data);
 void ft_lstfree_2(t_short *lst);
 t_short	*ft_lstlast_2(t_short *lst);
 void	ft_lstadd_back_2(t_short **lst, t_blah blah);

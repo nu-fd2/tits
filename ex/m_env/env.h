@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 17:00:33 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/01 12:19:54 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 22:26:58 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ t_env	*grp_env(t_env *env, char *key);
 char	*gky_env(t_env *env, char *key);
 t_env	*add_env(t_env *env, char *key, char *value, bool ported);
 int	lvl_env(t_data *data);
+char	**int_chr_env(t_data *data);
+void	fre_chr_env(t_data *data);
 
 #endif // ENV_H

@@ -22,6 +22,8 @@ ex/m_env/grp_env.c \
 ex/m_env/int_env.c \
 ex/m_env/lvl_env.c \
 ex/m_env/prn_env.c \
+ex/m_env/int_chr_env.c \
+ex/m_env/fre_chr_env.c \
 ex/m_env/prn_port_env.c \
 ex/m_exc/ex_rish.c \
 ex/m_exc/ex_synau.c \
