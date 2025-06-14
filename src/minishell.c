@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/14 01:55:59 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 18:02:22 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int prompt_msg(t_data *data)
     }
     add_history(line);
     if(ft_strcmp(line, "exit") == 0)
-        return 0;
+        return (free(line), 0);
     manager(data, line);
     
     free(line);
@@ -79,6 +79,7 @@ int main(int ac, char **av, char **env)
     data = ft_calloc(1, sizeof(t_data));
     data->env = int_env(env);
     data->fd = 1;
+    lvl_env(data);
     signal(SIGINT, hnd_sig);
 	signal(SIGQUIT, SIG_IGN);
 

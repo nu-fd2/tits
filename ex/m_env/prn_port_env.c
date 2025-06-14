@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 21:55:21 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/09 10:16:22 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 18:39:02 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,9 +113,10 @@ t_env	*srt_env(t_env *env)
 
 int	prn_port_env(t_data *data)
 {
-	t_env	*n_env;
+	t_env	(*h_env), (*n_env);
 
-	n_env = srt_env(data->env);
+	h_env = srt_env(data->env);
+	n_env = h_env;
 	if (n_env == NULL)
 	{
 		write(2, "Error: prn_port_env\n", 20);
@@ -136,6 +137,7 @@ int	prn_port_env(t_data *data)
 			ft_putstr_fd("\n", data->fd);
 			n_env = n_env->next;
 		}
+		fre_env(h_env);
 	}
-	return (fre_env(n_env), 0);
+	return (0);
 }

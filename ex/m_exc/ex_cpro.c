@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 01:56:16 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/13 02:53:45 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 17:09:42 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ int	ex_cpro(t_data *data, char *cmd, char **arg)
 	if (kid == 0)
 	{
 		execv(cmd, arg);
+		// execve(cmd, arg, char **env); USE TS
 		return (1);
 	}
 	else
