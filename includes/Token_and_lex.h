@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Token_and_lex.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:27:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/05 12:18:17 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/15 10:05:28 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -154,7 +154,7 @@ t_short *transformer(t_input *list);
 t_input *money_expansion(t_input *list);
 t_input *star_expansion(t_input *list);
 char	**ft_split(char const *s);
-void striper(t_input *list);
+t_input *striper(t_input *list);
 void lst_print2(t_short *list);
 int ft_checker(char c, int quote_flag);
 t_short *last_lst_creater(t_input *lst);

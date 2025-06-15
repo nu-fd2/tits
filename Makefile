@@ -50,7 +50,7 @@ ex/libft/ft_strlcpy.c \
 	  \
 
 OBJ = $(SRC:.c=.o)
-# nnn -Wall -Wextra -Werror -g3 -fsanitize=address
+# CC = cc -g3 -fsanitize=address
 CC = cc
 # CC = cc -Wall -Wextra -Werror
 

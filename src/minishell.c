@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/14 18:02:22 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/15 10:27:45 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,19 +23,20 @@ void manager(t_data *data, char *line)
     seperator(input);
     input = money_expansion(input);
     input = star_expansion(input);
-    striper(input);
-    shart = last_lst_creater(input);
-    lst_print2(shart);
+    input = striper(input);
+    lst_print(input);
+    // shart = last_lst_creater(input);
+    // lst_print2(shart);
 
     // TS AHHHHHHH
     //fnc(shart)
-    ex_rish(data, shart->args);
+    // ex_rish(data, shart->args);
 
     // lst_print(input);
     // printf("\e[1;32mCums!\e[0m\n");
     // shart = transformer(input);
     ft_lstfree(input);
-    ft_lstfree_2(shart);
+    // ft_lstfree_2(shart);
 }
 
 int prompt_msg(t_data *data)

@@ -1,0 +1,153 @@
+total 184
+-rw-r--r--   1 mdakni  candidates   1599 Jun 14 19:57 Makefile
+-rwxr-xr-x   1 mdakni  candidates  12864 Jun 14 19:57 a.out
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 19:57 b.c
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 20:07 bb1
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 20:07 bb2
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 20:07 bb3
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 19:57 c.c
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 19:57 d.c
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 19:57 e.c
+drwxr-xr-x   9 mdakni  candidates    306 Jun 14 19:57 ex
+-rw-r--r--   1 mdakni  candidates    716 Jun 14 19:57 f.c
+-rw-r--r--   1 mdakni  candidates   1619 Jun 14 19:57 funn.c
+drwxr-xr-x   3 mdakni  candidates    102 Jun 14 19:57 includes
+-rwxr-xr-x   1 mdakni  candidates  52284 Jun 14 20:00 minishell
+drwxr-xr-x  15 mdakni  candidates    510 Jun 14 20:00 parse
+drwxr-xr-x   3 mdakni  candidates    102 Jun 14 20:00 src
+drwxr-xr-x   3 mdakni  candidates    102 Jun 14 19:57 test
+-rw-r--r--   1 mdakni  candidates     65 Jun 14 19:57 updated.txt
+drwxr-xr-x   5 mdakni  candidates    170 Jun 14 20:00 utils
+-rw-r--r--   1 mdakni  candidates   1028 Jun 14 20:05 zz
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 20:06 zz4
+-rw-r--r--   1 mdakni  candidates      0 Jun 14 20:06 zz5
+-rw-r--r--   1 mdakni  candidates   1202 Jun 14 20:06 zz6
+
+./ex:
+total 64
+drwxr-xr-x  49 mdakni  candidates   1666 Jun 14 20:00 libft
+drwxr-xr-x   9 mdakni  candidates    306 Jun 14 20:00 m_bul
+drwxr-xr-x   3 mdakni  candidates    102 Jun 14 19:57 m_dog
+drwxr-xr-x  12 mdakni  candidates    408 Jun 14 20:00 m_env
+drwxr-xr-x   7 mdakni  candidates    238 Jun 14 20:00 m_exc
+-rw-r--r--   1 mdakni  candidates   1550 Jun 14 19:57 m_exec.h
+-rw-r--r--   1 mdakni  candidates  25412 Jun 14 19:57 main.c
+
+./ex/libft:
+total 376
+-rw-r--r--  1 mdakni  candidates  1900 Jun 14 19:57 Makefile
+-rw-r--r--  1 mdakni  candidates  1251 Jun 14 19:57 ft_atoi.c
+-rw-r--r--  1 mdakni  candidates   974 Jun 14 19:57 ft_bzero.c
+-rw-r--r--  1 mdakni  candidates  1187 Jun 14 19:57 ft_calloc.c
+-rw-r--r--  1 mdakni  candidates  1026 Jun 14 19:57 ft_isalnum.c
+-rw-r--r--  1 mdakni  candidates   998 Jun 14 19:57 ft_isalpha.c
+-rw-r--r--  1 mdakni  candidates   968 Jun 14 19:57 ft_isascii.c
+-rw-r--r--  1 mdakni  candidates   970 Jun 14 19:57 ft_isdigit.c
+-rw-r--r--  1 mdakni  candidates   969 Jun 14 19:57 ft_isprint.c
+-rw-r--r--  1 mdakni  candidates  1542 Jun 14 19:57 ft_itoa.c
+-rw-r--r--  1 mdakni  candidates  1124 Jun 14 19:57 ft_lstadd_back_bonus.c
+-rw-r--r--  1 mdakni  candidates  1026 Jun 14 19:57 ft_lstadd_front_bonus.c
+-rw-r--r--  1 mdakni  candidates  1148 Jun 14 19:57 ft_lstclear_bonus.c
+-rw-r--r--  1 mdakni  candidates  1056 Jun 14 19:57 ft_lstdelone_bonus.c
+-rw-r--r--  1 mdakni  candidates  1070 Jun 14 19:57 ft_lstiter_bonus.c
+-rw-r--r--  1 mdakni  candidates  1064 Jun 14 19:57 ft_lstlast_bonus.c
+-rw-r--r--  1 mdakni  candidates  1290 Jun 14 19:57 ft_lstmap_bonus.c
+-rw-r--r--  1 mdakni  candidates  1082 Jun 14 19:57 ft_lstnew_bonus.c
+-rw-r--r--  1 mdakni  candidates  1085 Jun 14 19:57 ft_lstsize_bonus.c
+-rw-r--r--  1 mdakni  candidates  1133 Jun 14 19:57 ft_memchr.c
+-rw-r--r--  1 mdakni  candidates  1178 Jun 14 19:57 ft_memcmp.c
+-rw-r--r--  1 mdakni  candidates  1151 Jun 14 19:57 ft_memcpy.c
+-rw-r--r--  1 mdakni  candidates  1244 Jun 14 19:57 ft_memmove.c
+-rw-r--r--  1 mdakni  candidates  1064 Jun 14 19:57 ft_memset.c
+-rw-r--r--  1 mdakni  candidates   994 Jun 14 19:57 ft_putchar_fd.c
+-rw-r--r--  1 mdakni  candidates  1000 Jun 14 19:57 ft_putendl_fd.c
+-rw-r--r--  1 mdakni  candidates  1288 Jun 14 19:57 ft_putnbr_fd.c
+-rw-r--r--  1 mdakni  candidates  1042 Jun 14 19:57 ft_putstr_fd.c
+-rw-r--r--  1 mdakni  candidates  1931 Jun 14 19:57 ft_split.c
+-rw-r--r--  1 mdakni  candidates  1113 Jun 14 19:57 ft_strchr.c
+-rw-r--r--  1 mdakni  candidates  1324 Jun 14 19:57 ft_strcmp.c
+-rw-r--r--  1 mdakni  candidates  1098 Jun 14 19:57 ft_strdup.c
+-rw-r--r--  1 mdakni  candidates  1067 Jun 14 19:57 ft_striteri.c
+-rw-r--r--  1 mdakni  candidates  1208 Jun 14 19:57 ft_strjoin.c
+-rw-r--r--  1 mdakni  candidates  1313 Jun 14 19:57 ft_strlcat.c
+-rw-r--r--  1 mdakni  candidates  1148 Jun 14 19:57 ft_strlcpy.c
+-rw-r--r--  1 mdakni  candidates  1016 Jun 14 19:57 ft_strlen.c
+-rw-r--r--  1 mdakni  candidates  1244 Jun 14 19:57 ft_strmapi.c
+-rw-r--r--  1 mdakni  candidates  1371 Jun 14 19:57 ft_strncmp.c
+-rw-r--r--  1 mdakni  candidates  1136 Jun 14 19:57 ft_strndup.c
+-rw-r--r--  1 mdakni  candidates  1361 Jun 14 19:57 ft_strnstr.c
+-rw-r--r--  1 mdakni  candidates  1160 Jun 14 19:57 ft_strrchr.c
+-rw-r--r--  1 mdakni  candidates  1298 Jun 14 19:57 ft_strtrim.c
+-rw-r--r--  1 mdakni  candidates  1382 Jun 14 19:57 ft_substr.c
+-rw-r--r--  1 mdakni  candidates   987 Jun 14 19:57 ft_tolower.c
+-rw-r--r--  1 mdakni  candidates   988 Jun 14 19:57 ft_toupper.c
+-rw-r--r--  1 mdakni  candidates  3244 Jun 14 19:57 libft.h
+
+./ex/m_bul:
+total 56
+-rw-r--r--  1 mdakni  candidates  1220 Jun 14 19:57 bul_cmd.h
+-rw-r--r--  1 mdakni  candidates  1726 Jun 14 19:57 cmd_cd.c
+-rw-r--r--  1 mdakni  candidates  1471 Jun 14 19:57 cmd_echo.c
+-rw-r--r--  1 mdakni  candidates  1061 Jun 14 19:57 cmd_env.c
+-rw-r--r--  1 mdakni  candidates  1830 Jun 14 19:57 cmd_export.c
+-rw-r--r--  1 mdakni  candidates  1133 Jun 14 19:57 cmd_pwd.c
+-rw-r--r--  1 mdakni  candidates  1594 Jun 14 19:57 cmd_unset.c
+
+./ex/m_dog:
+total 8
+-rw-r--r--  1 mdakni  candidates  961 Jun 14 19:57 dog.h
+
+./ex/m_env:
+total 80
+-rw-r--r--  1 mdakni  candidates  1547 Jun 14 19:57 add_env.c
+-rw-r--r--  1 mdakni  candidates  1452 Jun 14 19:57 del_env.c
+-rw-r--r--  1 mdakni  candidates  1418 Jun 14 19:57 env.h
+-rw-r--r--  1 mdakni  candidates  1136 Jun 14 19:57 fre_env.c
+-rw-r--r--  1 mdakni  candidates  1019 Jun 14 19:57 gky_env.c
+-rw-r--r--  1 mdakni  candidates  1225 Jun 14 19:57 grp_env.c
+-rw-r--r--  1 mdakni  candidates  1390 Jun 14 19:57 int_env.c
+-rw-r--r--  1 mdakni  candidates  1507 Jun 14 19:57 lvl_env.c
+-rw-r--r--  1 mdakni  candidates  1310 Jun 14 19:57 prn_env.c
+-rw-r--r--  1 mdakni  candidates  3086 Jun 14 19:57 prn_port_env.c
+
+./ex/m_exc:
+total 40
+-rw-r--r--  1 mdakni  candidates  1344 Jun 14 19:57 ex_cpro.c
+-rw-r--r--  1 mdakni  candidates  1175 Jun 14 19:57 ex_exc.h
+-rw-r--r--  1 mdakni  candidates  1236 Jun 14 19:57 ex_rish.c
+-rw-r--r--  1 mdakni  candidates  1420 Jun 14 19:57 ex_synau.c
+-rw-r--r--  1 mdakni  candidates  1501 Jun 14 19:57 ex_there.c
+
+./includes:
+total 16
+-rw-r--r--  1 mdakni  candidates  4402 Jun 14 19:57 Token_and_lex.h
+
+./parse:
+total 136
+-rw-r--r--  1 mdakni  candidates  2559 Jun 14 19:57 checker.c
+-rw-r--r--  1 mdakni  candidates  2711 Jun 14 19:57 delimiters.c
+-rw-r--r--  1 mdakni  candidates  2939 Jun 14 19:57 filter.c
+-rw-r--r--  1 mdakni  candidates  3672 Jun 14 19:57 last_lst_creater.c
+-rw-r--r--  1 mdakni  candidates  5655 Jun 14 19:57 lst_functions.c
+-rw-r--r--  1 mdakni  candidates  3812 Jun 14 19:57 lst_functions_2.c
+-rw-r--r--  1 mdakni  candidates  9688 Jun 14 19:57 money_expansion.c
+-rw-r--r--  1 mdakni  candidates  2152 Jun 14 19:57 operators.c
+-rw-r--r--  1 mdakni  candidates  2019 Jun 14 19:57 seperator.c
+-rw-r--r--  1 mdakni  candidates  4734 Jun 14 19:57 star_expansion.c
+-rw-r--r--  1 mdakni  candidates  2367 Jun 14 19:57 striper.c
+-rw-r--r--  1 mdakni  candidates  3058 Jun 14 19:57 tokenize.c
+-rw-r--r--  1 mdakni  candidates  3360 Jun 14 19:57 transformer.c
+
+./src:
+total 8
+-rw-r--r--  1 mdakni  candidates  2760 Jun 14 20:00 minishell.c
+
+./test:
+total 8
+-rw-r--r--  1 mdakni  candidates  6 Jun 14 19:57 zz
+
+./utils:
+total 32
+-rw-r--r--  1 mdakni  candidates  1647 Jun 14 19:57 libft_func.c
+-rw-r--r--  1 mdakni  candidates  3172 Jun 14 19:57 libft_func2.c
+-rw-r--r--  1 mdakni  candidates  4591 Jun 14 19:57 libft_func3.c

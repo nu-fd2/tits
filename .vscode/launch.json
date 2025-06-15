@@ -1,0 +1,13 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "lldb",
+      "request": "launch",
+      "args": [],
+      "cwd": "/Users/mdakni/projects/tits",
+      "program": "/Users/mdakni/projects/tits/build/Debug/outDebug"
+    }
+  ]
+}

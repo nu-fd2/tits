@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   striper.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 20:35:13 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/30 14:37:32 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/15 10:29:45 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,26 +60,62 @@ char *tmp_assignment(t_input *list, int size)
         }
         tmp[j++] = list->value[i++];
     }
-    tmp[j] = '\0';
-    return tmp;
+    if(j > 0)
+        return(tmp[j] = '\0', tmp);
+    return (tmp = NULL, tmp);
 }
 
-void striper(t_input *list)
+void remove_middle_node(t_input **list, t_input **list_tmp)
+{
+    t_input *tmp;
+
+    if((*list_tmp)->prev)
+    {
+        (*list_tmp)->prev->next = (*list_tmp)->next;
+        if((*list_tmp)->next)
+            (*list_tmp)->next->prev = (*list_tmp)->prev;
+        tmp = (*list_tmp)->next;
+        (*list_tmp)->next = NULL;
+        ft_lstfree((*list_tmp));
+        (*list_tmp) = tmp;
+    }
+    else
+    {
+        (*list_tmp) = (*list_tmp)->next;
+        if(((*list)->next))
+            (*list)->next->prev = NULL;
+        tmp = (*list)->next;
+        (*list)->next = NULL;
+        ft_lstfree((*list));
+        (*list) = tmp;
+    }
+}
+
+t_input *striper(t_input *list)
 {
     char *tmp;
     int size;
+    t_input *list_tmp;
 
-    while(list->value)
+    tmp = NULL;
+    list_tmp = list;
+    while(list_tmp->value)
     {
-        size = calculate_size_blyat(list->value);
+        size = calculate_size_blyat(list_tmp->value);
         if(size == 0)
         {
-            list = list->next;
+            list_tmp = list_tmp->next;
            continue;
         }
-        tmp = tmp_assignment(list, size + 1);
-        free(list->value);
-        list->value = tmp;
-        list = list->next;
+        tmp = tmp_assignment(list_tmp, size + 1);
+        if(tmp == NULL)
+        {
+            remove_middle_node(&list ,&list_tmp);
+            continue;
+        }
+        free(list_tmp->value);
+        list_tmp->value = tmp;
+        list_tmp = list_tmp->next;
     }
+    return (list);
 }
