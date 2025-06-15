@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:27:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 10:05:28 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/15 20:37:11 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ typedef struct s_nodes
     int index;
     int quotes; // 0 : no problems, 1 : open single quotes, 2 : open double quotes
     int strip;
+    bool star;
     t_token type;
     t_token category;
     bool red_app;
@@ -73,6 +74,7 @@ typedef struct s_latest
     struct s_latest *prev;
     struct s_latest *tail;
     bool ambiguous;
+    int red_size;
 }   t_short;
 
 typedef struct s_size
@@ -110,6 +112,7 @@ typedef struct s_blah
     char **args2;
     char **reds2;
     bool ambiguous;
+    int size;
 } t_blah;
 typedef struct s_star
 {

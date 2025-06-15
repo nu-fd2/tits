@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:47:16 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/12 18:46:45 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/15 18:39:21 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,8 @@ char	*ft_strdup(const char *s1)
 	char	*str;
 	int		i;
 
+	if(!s1)
+		return NULL;
 	str = malloc(ft_strlen(s1) + 1);
 	if (str == NULL)
 		return (NULL);

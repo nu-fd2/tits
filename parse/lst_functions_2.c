@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_functions_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:24:05 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/29 19:21:29 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/15 20:43:03 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,6 +94,7 @@ void	ft_lstadd_back_2(t_short **lst, t_blah blah)
 	new = ft_calloc(sizeof(t_short), 1);
 	if (new == NULL)
 		return ;
+	new->red_size = blah.size;
 	new->args = blah.args2;
     new->reds = blah.reds2;
 	new->ambiguous = blah.ambiguous;
@@ -129,7 +130,7 @@ void ft_lstfree_2(t_short *lst)
         tmp = lst;
         while(lst->args && lst->args[i])
             free(lst->args[i++]);
-        while(lst->reds && lst->reds[j])
+        while(lst->reds && j < lst->red_size)
             free(lst->reds[j++]);
 		if(lst->args)
 			free(lst->args);

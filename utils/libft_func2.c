@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 17:59:49 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/12 18:53:46 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/15 11:37:19 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ int	ft_strcmp(const char *s1, const char *s2)
 			return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
 		i++;
 	}
-	return (0);
+	return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
 }
 
 char	*ft_strjoin(char *s1, char *s2)

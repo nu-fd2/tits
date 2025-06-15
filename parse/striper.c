@@ -6,34 +6,34 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 20:35:13 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 10:29:45 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/15 18:05:59 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Token_and_lex.h"
 
-int calculate_size_blyat(char *niggers)
+int calculate_size_blyat(char *str)
 {
     int i;
-    int dick_size;
+    int size;
     int quote_flag;
 
     i = 0;
-    dick_size = 0;
+    size = 0;
     quote_flag = 0;
-    while(niggers[i])
+    while(str[i])
     {
-        quote_flag = ft_checker(niggers[i], quote_flag);
-        if((niggers[i] == '"' && quote_flag != 1) || (niggers[i] == '\'' && quote_flag != 2))
+        quote_flag = ft_checker(str[i], quote_flag);
+        if((str[i] == '"' && quote_flag != 1) || (str[i] == '\'' && quote_flag != 2))
         {
             i++;
             continue;
         }
-        dick_size++;
+        size++;
         i++;
     }
     // printf(" size is : %d\n", dick_size);
-    return(dick_size + 1);
+    return(size + 1);
 }
 
 char *tmp_assignment(t_input *list, int size)
@@ -62,7 +62,7 @@ char *tmp_assignment(t_input *list, int size)
     }
     if(j > 0)
         return(tmp[j] = '\0', tmp);
-    return (tmp = NULL, tmp);
+    return (free(tmp) ,tmp = NULL, tmp);
 }
 
 void remove_middle_node(t_input **list, t_input **list_tmp)
@@ -91,6 +91,15 @@ void remove_middle_node(t_input **list, t_input **list_tmp)
     }
 }
 
+int remove_or_ignore(char* tmp, t_input **list, t_input **list_tmp)
+{   
+    // if(tmp == NULL)
+    //     return (remove_middle_node( list , list_tmp), 0);
+    if((*list_tmp)->star == true)
+        return ((*list_tmp) = (*list_tmp)->next, free(tmp), 0);
+    return 1;
+}
+
 t_input *striper(t_input *list)
 {
     char *tmp;
@@ -99,7 +108,7 @@ t_input *striper(t_input *list)
 
     tmp = NULL;
     list_tmp = list;
-    while(list_tmp->value)
+    while(list_tmp && list_tmp->value)
     {
         size = calculate_size_blyat(list_tmp->value);
         if(size == 0)
@@ -108,11 +117,8 @@ t_input *striper(t_input *list)
            continue;
         }
         tmp = tmp_assignment(list_tmp, size + 1);
-        if(tmp == NULL)
-        {
-            remove_middle_node(&list ,&list_tmp);
+        if(remove_or_ignore(tmp ,&list, &list_tmp) == 0)
             continue;
-        }
         free(list_tmp->value);
         list_tmp->value = tmp;
         list_tmp = list_tmp->next;

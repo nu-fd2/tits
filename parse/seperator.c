@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   seperator.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/05 22:13:20 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/28 22:13:44 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/15 18:31:02 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ void handle_clear(t_input *list, t_blah *blah)
     t_input *tmp;
 
     tmp = list;
-    while(tmp && tmp->value)
+    while(tmp->next && tmp->type != EOF)
     {
         if(tmp->type == TOKEN_ARG || tmp->type == TOKEN_CMD)
             tmp->type = TOKEN_WORD;

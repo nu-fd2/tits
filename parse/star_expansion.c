@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   star_expansion.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 15:41:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/29 19:08:17 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/15 13:19:26 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,22 +31,26 @@ void alpha_sort(t_input *iter)
 {
     t_input *iter2;
     char *tmp;
+    bool swapped;
 
-    while(iter)
+    if(!iter)
+        return;
+    swapped = 1;
+    while(swapped == 1)
     {
-        iter2 = iter->next;
+        swapped = false;
+        iter2 = iter;
         while(iter2)
         {
-            if(ft_strcmp(iter->value, iter2->value))
+            if(iter2->next && ft_strcmp(iter->value, iter2->next->value) > 0)
             {
-                tmp = iter->value;
-                iter->value = iter2->value;
-                iter2->value = tmp;
-                break;
+                tmp = iter2->value;
+                iter2->value = iter2->next->value;
+                iter2->next->value = tmp;
+                swapped = true;
             }
             iter2 = iter2->next;
         }
-            iter = iter->next;
     }
 }
 
@@ -56,10 +60,6 @@ void ft_replace(t_input *add, t_input **iter, t_input **list)
 
     alpha_sort(add);
     last = ft_lstlast(add);
-    // printf("add : ");
-    // lst_print(add);
-    // printf("\nlast : ");
-    // lst_print(last);
     if((*iter)->prev)
         (*iter)->prev->next = add;
     else
@@ -75,13 +75,23 @@ void ft_replace(t_input *add, t_input **iter, t_input **list)
 void add_and_assign_token(t_input **iter, struct dirent *read, t_input **add)
 {
     t_input *last;
+    t_input *tmp;
+    char *tmp_str;
 
+    tmp = (*iter)->next;
+    tmp_str = ft_strdup((*iter)->value);
+    (*iter)->next = NULL;
+    (*iter) = striper((*iter));
+    (*iter)->next = tmp;
     if(wildcard_match((*iter)->value, read->d_name))
     {
         ft_lstadd_back(add, ft_strdup(read->d_name));
         last = ft_lstlast(*add);
         last->type = (*iter)->type;
+        last->star = true;
     }
+    free((*iter)->value);
+    (*iter)->value = tmp_str;
 }
 
 void read_and_create(t_input **iter, int q_flag, int s_flag, t_input **list)

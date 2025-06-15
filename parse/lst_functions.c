@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_functions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:42:16 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/14 17:42:10 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/15 19:53:30 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,51 +28,45 @@ void	lst_print(t_input *bruh)
 	{
 		size++;
 		data = head->value;
-		if (data == NULL)
-			printf("\033[1;31m%s\033[0m", data);
-		else
-		{
-			if(head->type == TOKEN_WORD)
-				printf("\033[1;34m%s\033[0m", "WORD");
-			else if(head->type == TOKEN_OP)
-				printf("\033[1;34m%s\033[0m", "OP");
-			else if(head->type == TOKEN_CMD)
-				printf("\033[1;34m%s\033[0m", "CMD");
-			else if(head->type == TOKEN_ARG)
-				printf("\033[1;34m%s\033[0m", "ARG");
-			else if(head->type == TOKEN_FILE)
-				printf("\033[1;34m%s\033[0m", "FILE");
-			else if(head->type == TOKEN_R_RED)
-				printf("\033[1;34m%s\033[0m", "R_RED");
-			else if(head->type == TOKEN_L_RED)
-				printf("\033[1;34m%s\033[0m", "L_RED");
-			else if(head->type == TOKEN_R_APP)
-				printf("\033[1;34m%s\033[0m", "R_APP");
-			else if(head->type == TOKEN_L_APP)
-				printf("\033[1;34m%s\033[0m", "L_APP");
-			else if(head->type == TOKEN_PIPE)
-				printf("\033[1;34m%s\033[0m", "PIPE");
-			else if(head->type == TOKEN_O_PAR)
-				printf("\033[1;34m%s\033[0m", "O_PAR");
-			else if(head->type == TOKEN_C_PAR)
-				printf("\033[1;34m%s\033[0m", "C_PAR");
-			else if(head->type == TOKEN_AND)
-				printf("\033[1;34m%s\033[0m", "AND");
-			else if(head->type == TOKEN_OR)
-				printf("\033[1;34m%s\033[0m", "OR");
-			else if(head->type == TOKEN_EOF)
-				printf("\033[1;34m%s\033[0m", "EOF");
-			if(head->expand)
-				printf("\033[1;31m EXPANDABLE! \033[0m");
-			printf(" : \033[1;36m%s\033[0m", data);
-		}
+		if(head->type == TOKEN_WORD)
+			printf("\033[1;34m%s\033[0m", "WORD");
+		else if(head->type == TOKEN_OP)
+			printf("\033[1;34m%s\033[0m", "OP");
+		else if(head->type == TOKEN_CMD)
+			printf("\033[1;34m%s\033[0m", "CMD");
+		else if(head->type == TOKEN_ARG)
+			printf("\033[1;34m%s\033[0m", "ARG");
+		else if(head->type == TOKEN_FILE)
+			printf("\033[1;34m%s\033[0m", "FILE");
+		else if(head->type == TOKEN_R_RED)
+			printf("\033[1;34m%s\033[0m", "R_RED");
+		else if(head->type == TOKEN_L_RED)
+			printf("\033[1;34m%s\033[0m", "L_RED");
+		else if(head->type == TOKEN_R_APP)
+			printf("\033[1;34m%s\033[0m", "R_APP");
+		else if(head->type == TOKEN_L_APP)
+			printf("\033[1;34m%s\033[0m", "L_APP");
+		else if(head->type == TOKEN_PIPE)
+			printf("\033[1;34m%s\033[0m", "PIPE");
+		else if(head->type == TOKEN_O_PAR)
+			printf("\033[1;34m%s\033[0m", "O_PAR");
+		else if(head->type == TOKEN_C_PAR)
+			printf("\033[1;34m%s\033[0m", "C_PAR");
+		else if(head->type == TOKEN_AND)
+			printf("\033[1;34m%s\033[0m", "AND");
+		else if(head->type == TOKEN_OR)
+			printf("\033[1;34m%s\033[0m", "OR");
+		else if(head->type == TOKEN_EOF)
+			printf("\033[1;34m%s\033[0m", "EOF");
+		if(head->expand)
+			printf("\033[1;31m EXPANDABLE! \033[0m");
+		printf(" : \033[1;36m%s\033[0m", data);
 		printf("\033[1;37m -> \033[0m");
 		head = head->next;
 	}
 	printf("\033[1;35mNULL\033[0m");
 	printf("\033[1;33m %d\033[0m\n", size);
 }
-
 void lst_print2(t_short *list)
 {
 	int i;
@@ -162,6 +156,95 @@ void lst_print2(t_short *list)
 		list = list->next;
 	}
 }
+// void lst_print2(t_short *list)
+// {
+// 	int i;
+// 	while(list)
+// 	{
+// 		if(list->next == NULL)
+// 		{
+// 			if(list->args)
+// 			{
+// 				i = 0;
+// 				printf("\e[1;34m└───\e[0m\e[1;31m[%s]\e[0m", list->args[0]);
+// 				printf("    \e[1;34m\n     │\e[0m\e[1;35mcmd+args\e[0m\n");
+// 				printf("    \e[1;34m ├──\e[0m");
+// 				while(i < sizeof(list->args))
+// 				{
+// 					printf("\e[1;31m─\e[0m\e[1;31m[%s]\e[0m", list->args[i]);
+// 					i++;
+// 				}
+// 			}
+// 			else
+// 			{
+// 				printf("\e[1;34m└───\e[0m\e[1;31m[NULL]\e[0m");
+// 				printf("    \e[1;34m\n     │\e[0m\e[1;35mcmd+args\e[0m\n");
+// 				printf("    \e[1;34m ├──\e[0m");
+// 			}
+// 			if(list->reds)
+// 			{
+// 				printf("\n\e[1;34m     │\e[0m\e[1;36mRedirects\e[0m\n");
+// 				printf("    \e[1;34m └──\e[0m");
+// 				i = 0;
+// 				while(i < sizeof(list->reds))
+// 				{
+// 					printf("\e[1;34m─\e[0m\e[1;31m[%s]\e[0m", list->reds[i]);
+// 					i++;
+// 				}
+// 				printf("\n");
+// 			}
+// 			else
+// 			{
+// 				printf("\n\e[1;34m     │\e[0m\e[1;36mRedirects\e[0m\n");
+// 				printf("    \e[1;34m └──\e[0m");
+// 				printf("\n");
+// 			}
+// 			list = list->next;
+// 			continue;
+// 		}
+// 		if(list->args)
+// 		{
+// 			i = 0;
+// 			printf("\e[1;34m├───\e[0m\e[1;31m[%s]\e[0m", list->args[0]);
+// 			printf("    \e[1;34m\n│     │\e[0m\e[1;35mcmd+args\e[0m\n");
+// 			printf("\e[1;34m│\e[0m");
+// 			printf("    \e[1;34m ├──\e[0m");
+// 			while(i < sizeof(list->args))
+// 			{
+// 				printf("\e[1;31m─\e[0m\e[1;31m[%s]\e[0m", list->args[i]);
+// 				i++;
+// 			}
+// 		}
+// 		else
+// 		{
+// 			printf("\e[1;34m├───\e[0m\e[1;31m[NULL]\e[0m");
+// 			printf("    \e[1;34m\n│     │\e[0m\e[1;35mcmd+args\e[0m\n");
+// 			printf("\e[1;34m│\e[0m");
+// 			printf("    \e[1;34m ├──\e[0m");
+// 		}
+// 		if(list->reds)
+// 		{
+// 			printf("\n\e[1;34m│     │\e[0m\e[1;36mRedirects\e[0m\n");
+// 			printf("\e[1;34m│\e[0m");
+// 			printf("    \e[1;34m └──\e[0m");
+// 			i = 0;
+// 			while(i < sizeof(list->reds))
+// 			{
+// 				printf("\e[1;34m─\e[0m\e[1;31m[%s]\e[0m", list->reds[i]);
+// 				i++;
+// 			}
+// 			printf("\n");
+// 		}
+// 		else
+// 		{
+// 			printf("\n\e[1;34m│     │\e[0m\e[1;36mRedirects\e[0m\n");
+// 			printf("\e[1;34m│\e[0m");
+// 			printf("    \e[1;34m └──\e[0m");
+// 			printf("\n");
+// 		}
+// 		list = list->next;
+// 	}
+// }
 
 void lst_assign(t_input **new, t_input **lst)
 {

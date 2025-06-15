@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   money_expansion.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:50:07 by skully            #+#    #+#             */
-/*   Updated: 2025/05/30 14:50:08 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/15 19:57:31 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void expand_and_append(t_input *list, t_flags *check)
     check->start = check->end;
     tmp3 = getenv(tmp);
     if(!tmp3)
-        return;
+        return(free(tmp));
     tmp2 = ft_strdup(tmp3);
     free(tmp);
     check->string = ft_strnjoin(check->string, tmp2, ft_strlen(tmp2));
