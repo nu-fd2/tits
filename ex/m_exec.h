@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 05:18:51 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/14 20:59:15 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/14 22:52:29 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_data
 	int				fd;
 	int				fd2;
 	int				ex;
+	int				exm;
 	pid_t			kid;
 	char			**chr_env;
 	t_env			*env;

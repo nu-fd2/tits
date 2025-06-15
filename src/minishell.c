@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/14 22:36:44 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/15 01:47:12 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,7 @@ int prompt_msg(t_data *data)
         exit(0);
     }
     add_history(line);
-    if(ft_strcmp(line, "exit") == 0)
-        return (free(line), 0);
     manager(data, line);
-    
     free(line);
     return 1;
 }
@@ -65,7 +62,7 @@ static void hnd_sig(int sig)
 {
 	(void)sig;
 	write(1, "\n", 1);
-	rl_replace_line("", 0);
+	// rl_replace_line("", 0);
 	rl_on_new_line();
 	rl_redisplay();
 }
@@ -73,10 +70,13 @@ static void hnd_sig(int sig)
 int main(int ac, char **av, char **env)
 {
     t_data  *data;
+    int     ret;
 
+    ret = 1;
     data = ft_calloc(1, sizeof(t_data));
     data->env = int_env(env);
     data->fd = 1;
+    data->exm = 0;
     lvl_env(data);
     data->chr_env = int_chr_env(data);
     signal(SIGINT, hnd_sig);
@@ -86,11 +86,15 @@ int main(int ac, char **av, char **env)
 
     while(69)
     {
-        if (prompt_msg(data))
+        ret = prompt_msg(data);
+        if (data->exm != 0)
+        {
+            ret = 0;
             break;
+        }
     }
     fre_env(data->env);
     fre_chr_env(data);
     free(data);
-    return 1;
+    return (ret);
 }
