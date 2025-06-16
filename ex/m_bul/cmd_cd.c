@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 10:47:13 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/03 07:52:49 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/15 18:39:45 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,15 +15,27 @@
 char	*n_path(t_data *data, char *opeth)
 {
 	char *path;
+	char *tmpp;
 	char *home;
 
+	tmpp = NULL;
 	if (opeth[0] != '~')
 	{
 		path = ft_strdup(opeth);
 		return (path);
 	}
 	home = gky_env(data->env, "HOME");
-	path = ft_strjoin(home, &opeth[1]);
+	if (opeth[1] == '/')
+		path = ft_sstrjoin(home, &opeth[1]);
+	else
+	{
+		if (opeth[2] == '\0')
+			tmpp = ft_strdup(home);
+		else
+			tmpp = ft_sstrjoin(home, "/");
+		path = ft_sstrjoin(tmpp, &opeth[1]);
+		free(tmpp);
+	}
 	return (path);
 }
 
