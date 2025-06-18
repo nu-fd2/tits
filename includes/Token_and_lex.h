@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:27:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 01:44:47 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/16 18:56:04 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -151,7 +151,7 @@ void filter(t_input *list);
 void checker(char *line);
 void seperator(t_input *list);
 t_short *transformer(t_input *list);
-t_input *money_expansion(t_input *list);
+t_input *money_expansion(t_input *list, t_data *data);
 t_input *star_expansion(t_input *list);
 char	**ft_split(char const *s);
 void striper(t_input *list);

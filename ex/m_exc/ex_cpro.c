@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 01:56:16 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/14 17:09:42 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/18 10:38:32 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,29 +15,45 @@
 int	ex_cpro(t_data *data, char *cmd, char **arg)
 {
 	int		sta;
-	int		wife;
-	int		wife2;
+	int		firekeeper;
+	int		firekeeper2;
 	pid_t	kid;
+	char	**nvv;
 
 	sta = 0;
+
 	kid = fork();
 	if (kid < 0)
 		return 1;
 	if (kid == 0)
 	{
-		execv(cmd, arg);
-		// execve(cmd, arg, char **env); USE TS
+		dup2(data->fd, 1);
+		dup2(data->fd2, 0);
+		execve(cmd, arg, data->chr_env);
+		perror("execve");
+		exit(EXIT_FAILURE);
 		return (1);
 	}
 	else
 	{
         waitpid(kid, &sta, 0);
-		wife = WIFEXITED(sta);
-		wife2 = WEXITSTATUS(sta);
-		if (wife)
-			return (wife);
-		else if (wife2)
-			return (128 + wife2);
+		printf("hi\n");
+		firekeeper = WIFEXITED(sta);
+		firekeeper2 = WEXITSTATUS(sta);
+		if (firekeeper)
+			return (firekeeper);
+		else if (firekeeper2)
+			return (128 + firekeeper2);
+		if (data->fd != 1)
+		{
+			close(data->fd);
+			data->fd = 1;
+		}
+		if (data->fd2 != 0)
+		{
+			close(data->fd2);
+			data->fd2 = 0;
+		}
 	}
 	return (0);
 }

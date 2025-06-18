@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/16 07:09:04 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/18 12:11:41 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void manager(t_data *data, char *line)
     input = tokenize(line);
     filter(input);
     seperator(input);
-    input = money_expansion(input);
+    input = money_expansion(input, data);
     input = star_expansion(input);
     striper(input);
     shart = last_lst_creater(input);
@@ -29,7 +29,17 @@ void manager(t_data *data, char *line)
 
     // TS AHHHHHHH
     //fnc(shart)
-    ex_rish(data, shart->args);
+    if (src_red(data, shart->reds) == -1)
+        write(2, "AMOGUS!\n", 9);
+    else
+        ex_rish(data, shart->args);
+    printf("gurt\n");
+    if (data->fd != 1)
+        close(data->fd);
+    if (data->fd2 != 0)
+        close(data->fd);
+    data->fd = 1;
+    data->fd2 = 0;
 
     // lst_print(input);
     // printf("\e[1;32mCums!\e[0m\n");
@@ -76,9 +86,9 @@ int main(int ac, char **av, char **env)
     data = ft_calloc(1, sizeof(t_data));
     data->env = int_env(env);
     data->fd = 1;
+    data->fd2 = 0;
     data->exm = 0;
     lvl_env(data);
-    data->chr_env = int_chr_env(data);
     signal(SIGINT, hnd_sig);
 	signal(SIGQUIT, SIG_IGN);
 
@@ -94,7 +104,6 @@ int main(int ac, char **av, char **env)
         }
     }
     fre_env(data->env);
-    fre_chr_env(data);
     free(data);
     return (ret);
 }

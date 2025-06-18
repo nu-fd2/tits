@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   money_expansion.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:50:07 by skully            #+#    #+#             */
-/*   Updated: 2025/05/30 14:50:08 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/16 18:57:35 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Token_and_lex.h"
 
-void expand_and_append(t_input *list, t_flags *check)
+void expand_and_append(t_input *list, t_flags *check, t_data *data)
 {
     //append what was previously read from outside $, then read until finishing $ then append what was read, then continue reading and appending
     char *tmp;
@@ -31,7 +31,7 @@ void expand_and_append(t_input *list, t_flags *check)
         check->end++;
     tmp = ft_substr(list->value, check->start, (check->end) - check->start);
     check->start = check->end;
-    tmp3 = getenv(tmp);
+    tmp3 = gky_env(data->env, tmp);
     if(!tmp3)
         return;
     tmp2 = ft_strdup(tmp3);
@@ -40,7 +40,7 @@ void expand_and_append(t_input *list, t_flags *check)
     free(tmp2);
 }
 
-void node_check(t_input *list, t_flags *check)
+void node_check(t_input *list, t_flags *check, t_data *data)
 {
     if(list->value[check->end] == '"' && check->quotes != 1)
     {
@@ -57,14 +57,14 @@ void node_check(t_input *list, t_flags *check)
             check->quotes = 1;
     }
     if(list->value[check->end] == '$' && check->quotes != 1)
-        expand_and_append(list, check);
+        expand_and_append(list, check, data);
     else
         check->end++;
     if(list->value[check->end] == '\0')
         check->string = ft_strnjoin(check->string, list->value + check->start, (check->end - 1) - check->start);
 }
 
-void node_mod(t_input *list)
+void node_mod(t_input *list, t_data *data)
 {
     t_flags check;
 
@@ -76,7 +76,7 @@ void node_mod(t_input *list)
     check.d_start = 0;
     check.quotes = 0;
     while(list->value[check.end])
-        node_check(list, &check);
+        node_check(list, &check, data);
     free(list->value);
     list->value = check.string;
 }
@@ -128,7 +128,7 @@ t_input *split_and_add(t_input **list, t_input **iter)
     return ((*iter) = lst_tmp, *list);
 }
 
-t_input *money_expansion(t_input *list)
+t_input *money_expansion(t_input *list, t_data *data)
 {
     t_input *iter;
 
@@ -140,7 +140,7 @@ t_input *money_expansion(t_input *list)
             iter = iter->next->next;
             continue;
         }
-        node_mod(iter);
+        node_mod(iter, data);
         list = split_and_add(&list, &iter);
         iter = iter->next;
     }

@@ -29,6 +29,10 @@ ex/m_exc/ex_rish.c \
 ex/m_exc/ex_synau.c \
 ex/m_exc/ex_cpro.c \
 ex/m_exc/ex_there.c \
+ex/m_red/src_red.c \
+ex/m_red/red_red.c \
+ex/m_red/apn_red.c \
+ex/m_red/inn_red.c \
 	  \
 ex/libft/ft_atoi.c \
 ex/libft/ft_itoa.c \

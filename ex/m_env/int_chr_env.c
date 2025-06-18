@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/14 21:09:54 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/14 22:25:49 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/16 18:51:08 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,10 +19,11 @@ int	env_len(t_env *env)
 
 	i = 0;
 	ennnv = env;
-	while(ennnv)
+	while(ennnv != NULL)
 	{
+		if (ennnv->ported == 1)
+			i++;
 		ennnv = ennnv->next;
-		i++;
 	}
 	return (i);
 }
@@ -41,10 +42,13 @@ char	**int_chr_env(t_data *data)
 	chr_env = ft_calloc(l + 1, sizeof(char *));
 	while (ennv)
 	{
-		tmp_env = ft_sstrjoin(ennv->key, "=");
-		chr_env[i] = ft_sstrjoin(tmp_env, ennv->value);
-		free(tmp_env);
-		i++;
+		if (ennv->ported)
+		{
+			tmp_env = ft_sstrjoin(ennv->key, "=");
+			chr_env[i] = ft_sstrjoin(tmp_env, ennv->value);
+			free(tmp_env);
+			i++;
+		}
 		ennv = ennv->next;
 	}
 	return (chr_env);

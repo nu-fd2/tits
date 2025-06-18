@@ -1,0 +1,24 @@
+total 192
+drwxr-xr-x  23 oel-mado  candidates   782B Jun 16 17:25 .
+drwxr-xr-x   8 oel-mado  candidates   272B Jun 14 18:11 ..
+drwxr-xr-x  12 oel-mado  candidates   408B Jun 16 10:55 .git
+-rw-r--r--   1 oel-mado  candidates    11B Jun 15 01:51 .gitignore
+-rw-r--r--   1 oel-mado  candidates   1.7K Jun 16 17:18 Makefile
+-rwxr-xr-x   1 oel-mado  candidates    13K Jun 14 19:52 a.out
+-rw-r--r--   1 oel-mado  candidates     0B Jun 14 19:52 b.c
+-rw-r--r--   1 oel-mado  candidates     0B Jun 14 19:52 c.c
+-rw-r--r--   1 oel-mado  candidates     0B Jun 14 19:52 d.c
+-rw-r--r--   1 oel-mado  candidates     0B Jun 14 19:52 e.c
+drwxr-xr-x  11 oel-mado  candidates   374B Jun 16 07:12 ex
+-rw-r--r--   1 oel-mado  candidates   716B Jun 14 19:52 f.c
+-rw-r--r--   1 oel-mado  candidates   1.6K Jun 14 19:52 funn.c
+drwxr-xr-x   3 oel-mado  candidates   102B Jun 14 19:52 includes
+-rwxr-xr-x   1 oel-mado  candidates    51K Jun 16 17:23 minishell
+drwxr-xr-x  15 oel-mado  candidates   510B Jun 16 17:23 parse
+-rw-r--r--   1 oel-mado  candidates   100B Jun 16 09:00 ps
+drwxr-xr-x   3 oel-mado  candidates   102B Jun 16 17:23 src
+drwxr-xr-x   3 oel-mado  candidates   102B Jun 14 19:52 test
+-rw-r--r--   1 oel-mado  candidates   1.3K Jun 16 17:24 ts
+-rw-r--r--   1 oel-mado  candidates    65B Jun 14 19:52 updated.txt
+drwxr-xr-x   5 oel-mado  candidates   170B Jun 16 17:23 utils
+-rw-r--r--   1 oel-mado  candidates     0B Jun 16 17:25 vroo
