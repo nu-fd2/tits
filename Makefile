@@ -1,5 +1,11 @@
 NAME = minishell
 
+# CFLAGS = -Wall -Werror -Wextra -I./../readline/include
+# CFLAGS = -fsanitize=address -g -I./../readline/include
+CFLAGS = -I./readline/include
+
+RDFLAGS = -lreadline -lncurses
+
 SRC = src/minishell.c parse/tokenize.c parse/delimiters.c \
 	  parse/filter.c parse/checker.c parse/lst_functions.c \
 	  parse/operators.c utils/libft_func.c utils/libft_func2.c \
@@ -33,6 +39,7 @@ ex/m_red/src_red.c \
 ex/m_red/red_red.c \
 ex/m_red/apn_red.c \
 ex/m_red/inn_red.c \
+ex/m_red/man_red.c \
 	  \
 ex/libft/ft_atoi.c \
 ex/libft/ft_itoa.c \
@@ -68,7 +75,7 @@ t:
 all:$(NAME)
 
 $(NAME):$(OBJ)
-	$(CC) $(OBJ) -o $(NAME) -lreadline
+	$(CC) $(CFLAGS) $(OBJ) -o $(NAME) $(RDFLAGS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@

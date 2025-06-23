@@ -6,11 +6,12 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 01:56:16 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/18 10:38:32 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/20 06:47:44 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ex_exc.h"
+#include "../../includes/Token_and_lex.h"
+
 
 int	ex_cpro(t_data *data, char *cmd, char **arg)
 {
@@ -44,16 +45,6 @@ int	ex_cpro(t_data *data, char *cmd, char **arg)
 			return (firekeeper);
 		else if (firekeeper2)
 			return (128 + firekeeper2);
-		if (data->fd != 1)
-		{
-			close(data->fd);
-			data->fd = 1;
-		}
-		if (data->fd2 != 0)
-		{
-			close(data->fd2);
-			data->fd2 = 0;
-		}
 	}
 	return (0);
 }

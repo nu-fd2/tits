@@ -6,11 +6,12 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 16:17:57 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/06 21:13:03 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/19 17:27:47 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "bul_cmd.h"
+#include "../../includes/Token_and_lex.h"
+
 
 char *key_gen(char *arg)
 {

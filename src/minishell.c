@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/18 12:11:41 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/23 14:01:43 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,15 +29,14 @@ void manager(t_data *data, char *line)
 
     // TS AHHHHHHH
     //fnc(shart)
-    if (src_red(data, shart->reds) == -1)
-        write(2, "AMOGUS!\n", 9);
-    else
-        ex_rish(data, shart->args);
-    printf("gurt\n");
+
+    if (shart->reds)
+        man_red(data, shart->reds);
+    ex_rish(data, shart->args);
     if (data->fd != 1)
         close(data->fd);
     if (data->fd2 != 0)
-        close(data->fd);
+        close(data->fd2);
     data->fd = 1;
     data->fd2 = 0;
 

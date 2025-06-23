@@ -6,11 +6,12 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 16:50:59 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/18 12:11:13 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/19 17:29:06 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ex_exc.h"
+#include "../../includes/Token_and_lex.h"
+
 
 int	ex_rish(t_data *data, char **arg)
 {
@@ -38,7 +39,6 @@ int	ex_rish(t_data *data, char **arg)
 		data->ex = ex_cpro(data, cmd, arg);
 		fre_chr_env(data->chr_env);
 	}
-	printf("yo\n");
 	free(cmd);
 	return (0);
 }

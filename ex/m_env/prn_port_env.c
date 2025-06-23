@@ -6,11 +6,12 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 21:55:21 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/14 18:39:02 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/19 17:28:55 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "env.h"
+#include "../../includes/Token_and_lex.h"
+
 
 // int	ma_strcmp(const char *s1, const char *s2)
 // {

@@ -6,22 +6,14 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 05:18:51 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/16 08:54:59 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/19 17:14:57 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef M_EXEC_H
 #define M_EXEC_H
 
-#include <stdbool.h>
-#include <unistd.h>
-#include <stdlib.h>
-#include <string.h>
-#include <signal.h>
-#include <stdio.h>
-#include <fcntl.h>
-#include <sys/wait.h>
-#include <readline/readline.h>
+#include "../includes/Token_and_lex.h"
 
 #include "libft/libft.h"
 #include "m_bul/bul_cmd.h"
@@ -29,7 +21,6 @@
 #include "m_exc/ex_exc.h"
 #include "m_red/hed_red.h"
 
-#include "../includes/Token_and_lex.h"
 
 typedef struct s_latest t_short;
 

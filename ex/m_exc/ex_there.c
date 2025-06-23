@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 07:12:00 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/14 16:34:52 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/19 17:29:27 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ex_exc.h"
+#include "../../includes/Token_and_lex.h"
 
 void	cln_splt(char **spltd)
 {
