@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   filter.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 12:37:25 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/30 13:37:35 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/25 16:25:03 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void syntax_error(t_token type, t_input *list, t_input *iter)
         else
             printf("Syntax Error near unexpected Token '%s' \n", iter->next->value);
     }
-    else if(type == TOKEN_R_APP || type == TOKEN_L_APP)
+    else if(type == TOKEN_R_APP || type == TOKEN_HEREDOC)
     {
         if(iter->next->value == NULL)
             printf("Syntax Error near unexpected Token 'newline' \n");
@@ -45,7 +45,7 @@ void filter(t_input *list)
             return(syntax_error(TOKEN_PIPE, list, iter));
         if((iter->type == TOKEN_R_RED || iter->type == TOKEN_L_RED) && !(iter->next->value))
             return(printf("3 : %d\n", iter->index) ,syntax_error(iter->type, list, iter));
-        if((iter->type == TOKEN_R_APP || iter->type == TOKEN_L_APP) && !(iter->next->value))
+        if((iter->type == TOKEN_R_APP || iter->type == TOKEN_HEREDOC) && !(iter->next->value))
             return(printf("4 : %d\n", iter->index) ,syntax_error(iter->type, list, iter));
         if(iter->type == TOKEN_PIPE && (!(iter->prev) || !(iter->next->value)))
             return(printf("1 : %d\n", iter->index) ,syntax_error(iter->type, list, iter));

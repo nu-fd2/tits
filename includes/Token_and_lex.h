@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:27:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 20:37:11 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:05:09 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ typedef enum s_tokens
     TOKEN_R_RED,
     TOKEN_L_RED,
     TOKEN_R_APP,
-    TOKEN_L_APP,
+    TOKEN_HEREDOC,
     TOKEN_PIPE,
     TOKEN_O_PAR,
     TOKEN_C_PAR,
@@ -75,6 +75,7 @@ typedef struct s_latest
     struct s_latest *tail;
     bool ambiguous;
     int red_size;
+    bool expanded;
 }   t_short;
 
 typedef struct s_size
@@ -113,6 +114,7 @@ typedef struct s_blah
     char **reds2;
     bool ambiguous;
     int size;
+    bool expanded;
 } t_blah;
 typedef struct s_star
 {

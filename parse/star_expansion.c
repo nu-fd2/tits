@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/25 15:41:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 13:19:26 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 16:25:03 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -152,7 +152,7 @@ void create_and_replace(t_input **iter, t_input **list)
     quote_flag = 0;
     star_flag = 0;
     slash_flag = 0;
-    if((*iter)->value[i] == '.')
+    if((*iter)->value[i] == '.' || ((*iter)->prev && (*iter)->prev->type == TOKEN_HEREDOC))
         return;
     while((*iter)->value[i])
     {

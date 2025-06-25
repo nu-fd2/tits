@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:35:00 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 20:40:14 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:03:20 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,9 @@ t_blah check_ambiguous(t_input *lst, t_blah blah)
         if(lst->next->type == TOKEN_FILE)
             blah.ambiguous = true;
     }
-        return blah;
+    if(lst->expand == true)
+        blah.expanded = true;
+    return blah;
 }
 
 void check_token_sizes(t_input *lst, t_blah *blah)

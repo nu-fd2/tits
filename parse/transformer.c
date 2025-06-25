@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transformer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:28:07 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/16 16:18:24 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/25 16:25:03 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool check_reds(t_input *list)
         tmp = true;
     else if(list->type == TOKEN_R_RED)
         tmp = true;
-    else if(list->type == TOKEN_L_APP)
+    else if(list->type == TOKEN_HEREDOC)
         tmp = true;
     else if(list->type == TOKEN_R_APP)
         tmp = true;

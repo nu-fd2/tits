@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/26 20:35:13 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 18:05:59 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 16:25:03 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ t_input *striper(t_input *list)
     while(list_tmp && list_tmp->value)
     {
         size = calculate_size_blyat(list_tmp->value);
-        if(size == 0)
+        if(size == 0 || ((list_tmp->prev && list_tmp->prev->type == TOKEN_HEREDOC)))
         {
             list_tmp = list_tmp->next;
            continue;

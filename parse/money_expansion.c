@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:50:07 by skully            #+#    #+#             */
-/*   Updated: 2025/06/15 19:57:31 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:16:07 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -135,7 +135,7 @@ t_input *money_expansion(t_input *list)
     iter = list;
     while(iter->value)
     {
-        if(iter->type == TOKEN_L_APP)
+        if(iter->type == TOKEN_HEREDOC)
         {
             iter = iter->next->next;
             continue;

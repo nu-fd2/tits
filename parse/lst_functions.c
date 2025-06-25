@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:42:16 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 19:53:30 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:10:23 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	lst_print(t_input *bruh)
 			printf("\033[1;34m%s\033[0m", "L_RED");
 		else if(head->type == TOKEN_R_APP)
 			printf("\033[1;34m%s\033[0m", "R_APP");
-		else if(head->type == TOKEN_L_APP)
+		else if(head->type == TOKEN_HEREDOC)
 			printf("\033[1;34m%s\033[0m", "L_APP");
 		else if(head->type == TOKEN_PIPE)
 			printf("\033[1;34m%s\033[0m", "PIPE");
@@ -77,7 +77,10 @@ void lst_print2(t_short *list)
 			if(list->args)
 			{
 				i = 0;
-				printf("\e[1;34m└───\e[0m\e[1;31m[%s]\e[0m", list->args[0]);
+				if(list->expanded == true)
+					printf("\e[1;34m└───\e[0m\e[1;31m[\e[0m\e[1;36mExpanded\e[0m \e[1;31m| %s]\e[0m", list->args[0]);
+				else
+					printf("\e[1;34m└───\e[0m\e[1;31m[%s]\e[0m", list->args[0]);
 				printf("    \e[1;34m\n     │\e[0m\e[1;35mcmd+args\e[0m\n");
 				printf("    \e[1;34m ├──\e[0m");
 				while(list->args[i])

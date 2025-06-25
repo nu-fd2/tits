@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:41:24 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/18 15:06:30 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 16:25:03 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,7 +69,7 @@ int handle_app(t_input **list, char *line)
 	{
 		ft_lstadd_back(list, ft_strdup("<<"));
 		tmp = ft_lstlast(*list);
-		tmp->type = TOKEN_L_APP;
+		tmp->type = TOKEN_HEREDOC;
 		tmp->category = TOKEN_RED_APP;
 		tmp->red_app = true;
 		return 2;

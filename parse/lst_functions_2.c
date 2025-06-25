@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:24:05 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/15 20:43:03 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:05:54 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	lst_print_2(t_input *head)
 				printf("\033[1;34m%s\033[0m", "L_RED");
 			else if(head->type == TOKEN_R_APP)
 				printf("\033[1;34m%s\033[0m", "R_APP");
-			else if(head->type == TOKEN_L_APP)
+			else if(head->type == TOKEN_HEREDOC)
 				printf("\033[1;34m%s\033[0m", "L_APP");
 			else if(head->type == TOKEN_PIPE)
 				printf("\033[1;34m%s\033[0m", "PIPE");
@@ -98,6 +98,7 @@ void	ft_lstadd_back_2(t_short **lst, t_blah blah)
 	new->args = blah.args2;
     new->reds = blah.reds2;
 	new->ambiguous = blah.ambiguous;
+	new->expanded = blah.expanded;
 	if (!lst || !new)
 		return ;
 	if (!*lst)
