@@ -40,6 +40,7 @@ ex/m_red/red_red.c \
 ex/m_red/apn_red.c \
 ex/m_red/inn_red.c \
 ex/m_red/man_red.c \
+ex/main_exc.c \
 	  \
 ex/libft/ft_atoi.c \
 ex/libft/ft_itoa.c \

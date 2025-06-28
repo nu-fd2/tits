@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/23 14:01:43 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/24 20:09:24 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,15 +30,7 @@ void manager(t_data *data, char *line)
     // TS AHHHHHHH
     //fnc(shart)
 
-    if (shart->reds)
-        man_red(data, shart->reds);
-    ex_rish(data, shart->args);
-    if (data->fd != 1)
-        close(data->fd);
-    if (data->fd2 != 0)
-        close(data->fd2);
-    data->fd = 1;
-    data->fd2 = 0;
+    main_exc(data, shart);
 
     // lst_print(input);
     // printf("\e[1;32mCums!\e[0m\n");

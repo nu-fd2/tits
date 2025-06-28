@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:27:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/23 13:56:13 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/27 17:05:52 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,6 +81,7 @@ typedef struct s_data
 	pid_t			kid;
 	char			**chr_env;
 	t_env			*env;
+    t_pips          *pips;
 }					t_data;
 
 typedef struct s_env
@@ -91,8 +92,14 @@ typedef struct s_env
 	struct s_env	*next;
 }					t_env;
 
-//================================================
+typedef struct s_pips
+{
+    int         i_pip;
+    int         o_pip;
+    t_pips      *next;
+}               t_pips;
 
+//================================================
 
 typedef struct s_nodes
 {
@@ -263,9 +270,9 @@ int	red_red(t_data *data, char *red);
 int	apn_red(t_data *data, char *red);
 int	inn_red(t_data *data, char *red);
 
-
-
-
+int main_exc(t_data *data, t_short *shart);
+int	int_pip(t_data *data, t_short *shart);
+void    clr_pip(t_data *data);
 
 
 
