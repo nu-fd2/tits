@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:47:16 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/12 18:46:45 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:55:01 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ bool is_space(char c)
 	return(c == ' ' || (c >= 9 && c <= 13));
 }
 
-size_t	ft_strlen(const char *s)
+size_t	my_strlen(const char *s)
 {
 	size_t	i;
 
@@ -29,12 +29,12 @@ size_t	ft_strlen(const char *s)
 	return (i);
 }
 
-char	*ft_strndup(const char *s1, int n)
+char	*my_strndup(const char *s1, int n)
 {
 	char	*str;
 	int		i;
 
-	str = malloc(ft_strlen(s1) + 1);
+	str = malloc(my_strlen(s1) + 1);
 	if (str == NULL)
 		return (NULL);
 	i = 0;
@@ -47,12 +47,14 @@ char	*ft_strndup(const char *s1, int n)
 	return (str);
 }
 
-char	*ft_strdup(const char *s1)
+char	*my_strdup(const char *s1)
 {
 	char	*str;
 	int		i;
 
-	str = malloc(ft_strlen(s1) + 1);
+	if(!s1)
+		return NULL;
+	str = malloc(my_strlen(s1) + 1);
 	if (str == NULL)
 		return (NULL);
 	i = 0;
@@ -64,8 +66,8 @@ char	*ft_strdup(const char *s1)
 	str[i] = '\0';
 	return (str);
 }
-char *ft_realloc(char *ptr, const char *new)
+char *my_realloc(char *ptr, const char *new)
 {
     free(ptr);
-    return(ft_strdup(new));
+    return(my_strdup(new));
 }

@@ -70,7 +70,7 @@ int main(int ac, char **av, char **env)
 
 // =======
 // >>>>>>> origin/tmp
-	data = ft_calloc(sizeof(data), 1);
+	data = my_calloc(sizeof(data), 1);
 	data->fd = 1;
 	data->env = int_env(env);
 
@@ -84,7 +84,7 @@ int main(int ac, char **av, char **env)
 // <<<<<<< HEAD
 	// prn_env(data);
 	char **ky;
-	// ky[1] = ft_strdup("");
+	// ky[1] = my_strdup("");
 	printf("0-------------------------------------------\n");
 	cmd_export(data, &av[1]);
 	// prn_env(data);

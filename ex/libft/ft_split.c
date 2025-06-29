@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 19:56:25 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/14 01:07:33 by oel-mado         ###   ########.fr       */
+/*   Updated: 2024/11/14 20:32:17 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ static char	**m_lit(char **arr, int word, const char *str, char c)
 				j = ft_strlen(&str[i]);
 			else
 				j = next - &str[i];
-			arr[k++] = ft_ssubstr(&str[i], 0, j);
+			arr[k++] = ft_substr(&str[i], 0, j);
 			if (!arr[k - 1])
 				return (frre(arr, k));
 			i = i + j;
@@ -71,7 +71,7 @@ static char	**m_lit(char **arr, int word, const char *str, char c)
 	return (arr);
 }
 
-char	**ft_ssplit(const char *str, char c)
+char	**ft_split(const char *str, char c)
 {
 	int		word;
 	char	**arr;

@@ -6,12 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 17:36:40 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:29:21 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/03 07:51:18 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
-
+#include "ex_exc.h"
 
 int	ex_synau(t_data *data, char **arg)
 {
@@ -30,8 +29,6 @@ int	ex_synau(t_data *data, char **arg)
 		cmd_echo(data, &arg[1]);
 	else if (ft_strncmp(arg[0], "pwd", 4) == 0)
 		cmd_pwd(data);
-	else if (ft_strncmp(arg[0], "exit", 5) == 0)
-		data->exm = 1;
 	else
 		return (69);
 	return (0);

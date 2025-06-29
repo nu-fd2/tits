@@ -6,12 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 21:52:53 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:28:16 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/05/23 05:25:24 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
-
+#include "env.h"
 
 int	fre_env(t_env *env)
 {

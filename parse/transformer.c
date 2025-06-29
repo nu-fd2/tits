@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   transformer.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 11:28:07 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/16 16:18:24 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:56:07 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ bool check_reds(t_input *list)
         tmp = true;
     else if(list->type == TOKEN_R_RED)
         tmp = true;
-    else if(list->type == TOKEN_L_APP)
+    else if(list->type == TOKEN_HEREDOC)
         tmp = true;
     else if(list->type == TOKEN_R_APP)
         tmp = true;
@@ -62,7 +62,7 @@ void add_string(t_short *shart, t_input *list, bool args)
     {
         if(list->type == TOKEN_CMD || list->type == TOKEN_ARG)
         {
-            shart->args[j] = ft_strdup(list->value);
+            shart->args[j] = my_strdup(list->value);
             j++;
         }
         list = list->next;
@@ -101,10 +101,10 @@ t_short *transformer(t_input *list)
     nodes.nodes = 0;
     nodes.size_cmd = 0;
     nodes.size_red = 0;
-    shart = ft_calloc(sizeof(t_short), 1);
+    shart = my_calloc(sizeof(t_short), 1);
     nodes = count_nodes(list, nodes, shart);
-    shart->args = ft_calloc(sizeof(char *), nodes.size_cmd);
-    shart->reds = ft_calloc(sizeof(char *), nodes.size_red);
+    shart->args = my_calloc(sizeof(char *), nodes.size_cmd);
+    shart->reds = my_calloc(sizeof(char *), nodes.size_red);
     printf("\n nodes : %d, args : %d, reds : %d\n", nodes.nodes, nodes.size_cmd, nodes.size_red);
     int i = 0;
     while(shart->args[i])

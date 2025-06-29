@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_export.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 16:17:57 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:27:47 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:57:15 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
-
+#include "bul_cmd.h"
 
 char *key_gen(char *arg)
 {
@@ -20,11 +19,11 @@ char *key_gen(char *arg)
 	i = 0;
 	while (arg[i] != '=' && arg[i] != '\0')
 	{
-		if (!ft_isalpha(arg[i]) && arg[i] != '_')
+		if (!my_isalpha(arg[i]) && arg[i] != '_')
 			return (NULL);
 		i++;
 	}
-	return (ft_strndup(arg, i));
+	return (my_strndup(arg, i));
 }
 
 char	*val_gen(char *arg)
@@ -34,7 +33,7 @@ char	*val_gen(char *arg)
 	i = 0;
 	while (arg[i] != '=' && arg[i] != '\0')
 		i++;
-	return (ft_strdup(&arg[i + 1]));
+	return (my_strdup(&arg[i + 1]));
 }
 
 int	prt_gen(char *arg)

@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   int_env.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 21:55:17 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:28:30 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:56:07 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
-
+#include "env.h"
 
 t_env	*int_env(char **env)
 {
@@ -26,9 +25,9 @@ t_env	*int_env(char **env)
 		j = 0;
 		while (env[i][j] != '=' && env[i][j] != '\0')
 			j++;
-		nu_env = ft_calloc(sizeof(t_env), 1);
-		nu_env->key = ft_strndup(env[i], j);
-		nu_env->value = ft_strdup(&env[i][j + 1]);
+		nu_env = my_calloc(sizeof(t_env), 1);
+		nu_env->key = my_strndup(env[i], j);
+		nu_env->value = my_strdup(&env[i][j + 1]);
 		nu_env->ported = 1;
 		nu_env->next = NULL;
 		if (i == 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 20:22:32 by skully            #+#    #+#             */
-/*   Updated: 2025/05/23 22:41:22 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:58:01 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@
 // 			return (answer);
 // 		if (quotes == 0)
 // 		{
-// 			answer[index] = ft_substr(s, i, size_word(s + i, c));
+// 			answer[index] = my_substr(s, i, size_word(s + i, c));
 // 			if (answer[index] == NULL)
 // 			{
 // 				free_mem(answer, index);
@@ -129,7 +129,7 @@
 // 	return (answer);
 // }
 
-// char	**ft_split(char const *s, char c)
+// char	**my_split(char const *s, char c)
 // {
 // 	char	**answer;
 // 	size_t	count;
@@ -196,7 +196,7 @@ char	*copy_word(const char *s, int *i)
 	return (word[len] = '\0', word);
 }
 
-char	**ft_split(const char *s)
+char	**my_split(const char *s)
 {
 	char **result;
 	int i = 0, j = 0;

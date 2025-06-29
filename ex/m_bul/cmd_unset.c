@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_unset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 21:48:51 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:27:56 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:57:24 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
-
+#include "bul_cmd.h"
 
 int	in_chk(char *key)
 {
@@ -20,12 +19,12 @@ int	in_chk(char *key)
 
 	i = 0;
 	s = 0;
-	if (!ft_isalpha(key[i]) && key[i] != '_')
+	if (!my_isalpha(key[i]) && key[i] != '_')
 		s = 1;
 	while (!s && key[i] != '\0')
 	{
 	printf("\033[1;32mHii\033[0m\n");
-		if (!(ft_isalnum(key[i]) || key[i] == '_'))
+		if (!(my_isalnum(key[i]) || key[i] == '_'))
 			s = 1;
 		i++;
 	}

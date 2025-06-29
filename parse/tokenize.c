@@ -6,7 +6,7 @@
 /*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/30 16:52:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/17 20:35:34 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:53:45 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,7 @@ int handle_word(t_input **list, char *line)
 	}
 	if(check.i > 0)
 	{
-		ft_lstadd_back(list, ft_strndup(line, check.i));
+		ft_lstadd_back(list, my_strndup(line, check.i));
 		tmp = ft_lstlast(*list);
 		tmp->category = TOKEN_WORD;
 		tmp->expand = check.expand;

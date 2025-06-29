@@ -3,15 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   prn_port_env.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 21:55:21 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:28:55 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:56:21 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
-
+#include "env.h"
 
 // int	ma_strcmp(const char *s1, const char *s2)
 // {
@@ -52,9 +51,9 @@ t_env	*cpy_env(t_env *env)
 	og_env = env;
 	while(og_env)
 	{
-		nu_env = ft_calloc(sizeof(t_env), 1);
-		nu_env->key = ft_strdup(og_env->key);
-		nu_env->value = ft_strdup(og_env->value);
+		nu_env = my_calloc(sizeof(t_env), 1);
+		nu_env->key = my_strdup(og_env->key);
+		nu_env->value = my_strdup(og_env->value);
 		nu_env->ported = og_env->ported;
 		nu_env->next = NULL;
 		if (i == 0)
@@ -101,7 +100,7 @@ t_env	*srt_env(t_env *env)
 		c_env = n_env;
 		while (c_env && c_env->next)
 		{
-			if (c_env->next->key && (ft_strcmp(c_env->key, c_env->next->key) > 0))
+			if (c_env->next->key && (my_strcmp(c_env->key, c_env->next->key) > 0))
 			{
 				swp_env(c_env, c_env->next);
 				s = 0;

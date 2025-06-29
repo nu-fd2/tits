@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+         #
+#    By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/10/24 17:00:38 by oel-mado          #+#    #+#              #
-#    Updated: 2025/05/29 08:36:54 by oel-mado         ###   ########.fr        #
+#    Updated: 2025/06/25 17:58:01 by mdakni           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,38 +18,38 @@ CFLAGS = -Wall -Wextra -Werror
 
 SRC = ft_atoi.c\
 	ft_bzero.c\
-	ft_calloc.c\
-	ft_isalnum.c\
-	ft_isalpha.c\
+	my_calloc.c\
+	my_isalnum.c\
+	my_isalpha.c\
 	ft_isascii.c\
-	ft_isdigit.c\
+	my_isdigit.c\
 	ft_isprint.c\
 	ft_itoa.c\
 	ft_memchr.c\
 	ft_memcmp.c\
 	ft_memcpy.c\
 	ft_memmove.c\
-	ft_memset.c\
+	my_memset.c\
 	ft_putchar_fd.c\
 	ft_putendl_fd.c\
 	ft_putnbr_fd.c\
 	ft_putstr_fd.c\
-	ft_split.c\
+	my_split.c\
 	ft_strchr.c\
-	ft_strdup.c\
-	ft_strndup.c\
+	my_strdup.c\
+	my_strndup.c\
 	ft_striteri.c\
-	ft_strjoin.c\
+	my_strjoin.c\
 	ft_strlcat.c\
 	ft_strlcpy.c\
-	ft_strlen.c\
+	my_strlen.c\
 	ft_strmapi.c\
 	ft_strncmp.c\
-	ft_strcmp.c\
+	my_strcmp.c\
 	ft_strnstr.c\
 	ft_strrchr.c\
 	ft_strtrim.c\
-	ft_substr.c\
+	my_substr.c\
 	ft_tolower.c\
 	ft_toupper.c
 	ft_lstnew_bonus.c\

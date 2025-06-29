@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 17:59:49 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/12 18:53:46 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:57:35 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Token_and_lex.h"
 
-void	*ft_memset(void *b, int c, size_t len)
+void	*my_memset(void *b, int c, size_t len)
 {
 	size_t			i;
 	unsigned char	*ptr;
@@ -27,7 +27,7 @@ void	*ft_memset(void *b, int c, size_t len)
 	return (b);
 }
 
-void	*ft_calloc(size_t count, size_t size)
+void	*my_calloc(size_t count, size_t size)
 {
 	unsigned char	*ptr;
 
@@ -39,11 +39,11 @@ void	*ft_calloc(size_t count, size_t size)
 	ptr = malloc(count * size);
 	if (ptr == NULL)
 		return (NULL);
-	ft_memset(ptr, '\0', size * count);
+	my_memset(ptr, '\0', size * count);
 	return (ptr);
 }
 
-int	ft_strcmp(const char *s1, const char *s2)
+int	my_strcmp(const char *s1, const char *s2)
 {
 	size_t	i;
 
@@ -61,10 +61,10 @@ int	ft_strcmp(const char *s1, const char *s2)
 			return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
 		i++;
 	}
-	return (0);
+	return (((unsigned char)s1[i]) - ((unsigned char)s2[i]));
 }
 
-char	*ft_strjoin(char *s1, char *s2)
+char	*my_strjoin(char *s1, char *s2)
 {
 	int		i;
 	int		j;
@@ -74,12 +74,12 @@ char	*ft_strjoin(char *s1, char *s2)
 	j = 0;
 	str = NULL;
 	if (!s1 && !s2)
-		return (ft_strdup(""));
+		return (my_strdup(""));
 	if (!s1)
 		return (s2);
 	if (!s2)
 		return (s1);
-	str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
+	str = malloc((my_strlen(s1) + my_strlen(s2)) + 1);
 	if (str == NULL)
 		return (NULL);
 	while (s1[i])
@@ -90,7 +90,7 @@ char	*ft_strjoin(char *s1, char *s2)
 	str[j] = '\0';
 	return (free(s1), free(s2), str);
 }
-char	*ft_strnjoin(char *s1, char *s2, int n)
+char	*my_strnjoin(char *s1, char *s2, int n)
 {
 	int		i;
 	int		j;
@@ -100,8 +100,8 @@ char	*ft_strnjoin(char *s1, char *s2, int n)
 	j = 0;
 	str = NULL;
 	if (!s1 && !s2)
-		return (ft_strdup(""));
-	str = malloc((ft_strlen(s1) + ft_strlen(s2)) + 1);
+		return (my_strdup(""));
+	str = malloc((my_strlen(s1) + my_strlen(s2)) + 1);
 	if (str == NULL)
 	return (NULL);
 	while (s1 && s1[i])
@@ -113,20 +113,20 @@ char	*ft_strnjoin(char *s1, char *s2, int n)
 	return (free(s1) ,str);
 }
 
-int	ft_isdigit(int c)
+int	my_isdigit(int c)
 {
 	return (c >= '0' && c <= '9');
 }
 
-int	ft_isalpha(int c)
+int	my_isalpha(int c)
 {
 	return ((c >= 'a' && c <= 'z') || (c >= 'A' && c <= 'Z'));
 }
-int	ft_isalnum(int c)
+int	my_isalnum(int c)
 {
-	return ((ft_isalpha(c)) || (ft_isdigit(c)));
+	return ((my_isalpha(c)) || (my_isdigit(c)));
 }
-char	*ft_substr(char const *s, unsigned int start, size_t len)
+char	*my_substr(char const *s, unsigned int start, size_t len)
 {
 	int		j;
 	size_t	i;
@@ -137,9 +137,9 @@ char	*ft_substr(char const *s, unsigned int start, size_t len)
 	i = start;
 	if (!s)
 		return (NULL);
-	size = ft_strlen(s);
+	size = my_strlen(s);
 	if (start > size)
-		return (ft_strdup(""));
+		return (my_strdup(""));
 	if (len > size - start)
 		len = size - start;
 	str = malloc((sizeof(char) * len) + 1);

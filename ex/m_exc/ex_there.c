@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   ex_there.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/12 07:12:00 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:29:27 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:54:03 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "ex_exc.h"
 
 void	cln_splt(char **spltd)
 {
@@ -40,7 +40,7 @@ char    *ex_there(t_data *data, char *cmd)
 		path = ft_sstrjoin(hed_path[i], n_cmd);
 		if (!access(path, X_OK))
 		{
-			ult = ft_strdup(path);
+			ult = my_strdup(path);
 			s = 1;
 		}
 		free(path);

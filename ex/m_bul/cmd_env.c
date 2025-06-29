@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 16:17:29 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:27:42 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/05/25 08:21:58 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "bul_cmd.h"
 
 int	cmd_env(t_data *data)
 {

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   minishell.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/24 20:09:24 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 18:03:21 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,20 +21,12 @@ void manager(t_data *data, char *line)
     input = tokenize(line);
     filter(input);
     seperator(input);
-    input = money_expansion(input, data);
+    input = money_expansion(input);
     input = star_expansion(input);
-    striper(input);
+    input = striper(input);
+    lst_print(input);
     shart = last_lst_creater(input);
     lst_print2(shart);
-
-    // TS AHHHHHHH
-    //fnc(shart)
-
-    main_exc(data, shart);
-
-    // lst_print(input);
-    // printf("\e[1;32mCums!\e[0m\n");
-    // shart = transformer(input);
     ft_lstfree(input);
     ft_lstfree_2(shart);
 }
@@ -47,9 +39,13 @@ int prompt_msg(t_data *data)
     {
         write(1, "exit\n", 5);
         free(line);
-        exit(0);
+        return 0;
     }
+    if(!line[0])
+        return (free(line), 1);
     add_history(line);
+    if(my_strcmp(line, "exit") == 0)
+        return (free(line), 0);
     manager(data, line);
     free(line);
     return 1;
@@ -70,31 +66,34 @@ static void hnd_sig(int sig)
 
 int main(int ac, char **av, char **env)
 {
+    // printf("\e[1;31mam about blauw\e[0m\n");
+    // struct sigaction    s_sig;
     t_data  *data;
-    int     ret;
 
-    ret = 1;
-    data = ft_calloc(1, sizeof(t_data));
-    data->env = int_env(env);
+    data = my_calloc(1, sizeof(t_data));
+    // data->env = int_env(env);
     data->fd = 1;
-    data->fd2 = 0;
-    data->exm = 0;
-    lvl_env(data);
+    // lvl_env(data);
     signal(SIGINT, hnd_sig);
 	signal(SIGQUIT, SIG_IGN);
 
     atexit(t);
+    // my_memset(&s_sig, 0, sizeof(s_sig));
+    // s_sig.sa_sigaction = hnd_sig;
+    // s_sig.sa_flags = SA_SIGINFO;
+    // sigaction(SIGINT, &s_sig, NULL);
+    // sigaction(SIGQUIT, &s_sig, NULL);
 
-    while(69)
+    while(1)
     {
-        ret = prompt_msg(data);
-        if (data->exm != 0)
+        if(prompt_msg(data) == 0)
         {
-            ret = 0;
-            break;
+            // fre_env(data->env);
+            free(data);
+            return 0;
         }
     }
-    fre_env(data->env);
+    // fre_env(data->env);
     free(data);
-    return (ret);
+    return 1;
 }

@@ -3,44 +3,45 @@
 /*                                                        :::      ::::::::   */
 /*   money_expansion.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:50:07 by skully            #+#    #+#             */
-/*   Updated: 2025/06/16 18:57:35 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:58:01 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/Token_and_lex.h"
 
-void expand_and_append(t_input *list, t_flags *check, t_data *data)
+void expand_and_append(t_input *list, t_flags *check)
 {
     //append what was previously read from outside $, then read until finishing $ then append what was read, then continue reading and appending
     char *tmp;
     char *tmp2;
     char *tmp3;
 
-    check->string = ft_strnjoin(check->string, list->value + check->start, (check->end - 1) - check->start);
+    check->string = my_strnjoin(check->string, list->value + check->start, (check->end - 1) - check->start);
     check->end++;
     check->start = check->end;
-    if(!ft_isalpha(list->value[check->end]) && list->value[check->end] != '_')
+    if(!my_isalpha(list->value[check->end]) && list->value[check->end] != '_')
     {
-        check->string = ft_strnjoin(check->string, "$", 1);
+        check->string = my_strnjoin(check->string, "$", 1);
+        // check->string = NULL;
         return;
     }
-    while(ft_isalnum(list->value[check->end]) || list->value[check->end] == '_')
+    while(my_isalnum(list->value[check->end]) || list->value[check->end] == '_')
         check->end++;
-    tmp = ft_substr(list->value, check->start, (check->end) - check->start);
+    tmp = my_substr(list->value, check->start, (check->end) - check->start);
     check->start = check->end;
-    tmp3 = gky_env(data->env, tmp);
+    tmp3 = getenv(tmp);
     if(!tmp3)
-        return;
-    tmp2 = ft_strdup(tmp3);
+        return(free(tmp));
+    tmp2 = my_strdup(tmp3);
     free(tmp);
-    check->string = ft_strnjoin(check->string, tmp2, ft_strlen(tmp2));
+    check->string = my_strnjoin(check->string, tmp2, my_strlen(tmp2));
     free(tmp2);
 }
 
-void node_check(t_input *list, t_flags *check, t_data *data)
+void node_check(t_input *list, t_flags *check)
 {
     if(list->value[check->end] == '"' && check->quotes != 1)
     {
@@ -57,14 +58,14 @@ void node_check(t_input *list, t_flags *check, t_data *data)
             check->quotes = 1;
     }
     if(list->value[check->end] == '$' && check->quotes != 1)
-        expand_and_append(list, check, data);
+        expand_and_append(list, check);
     else
         check->end++;
     if(list->value[check->end] == '\0')
-        check->string = ft_strnjoin(check->string, list->value + check->start, (check->end - 1) - check->start);
+        check->string = my_strnjoin(check->string, list->value + check->start, (check->end - 1) - check->start);
 }
 
-void node_mod(t_input *list, t_data *data)
+void node_mod(t_input *list)
 {
     t_flags check;
 
@@ -76,7 +77,7 @@ void node_mod(t_input *list, t_data *data)
     check.d_start = 0;
     check.quotes = 0;
     while(list->value[check.end])
-        node_check(list, &check, data);
+        node_check(list, &check);
     free(list->value);
     list->value = check.string;
 }
@@ -103,12 +104,12 @@ t_input *split_and_add(t_input **list, t_input **iter)
 
     lst_tmp = NULL;
     i = 0;
-    tmp = ft_split((*iter)->value);
+    tmp = my_split((*iter)->value);
     if(!tmp || !tmp[0] || tmp[1] == NULL)
         return(free_split(tmp) ,*list);
     while(tmp[i])
     {
-        ft_lstadd_back(&lst_tmp, ft_strdup(tmp[i]));
+        ft_lstadd_back(&lst_tmp, my_strdup(tmp[i]));
         lst_tmp2 = ft_lstlast(lst_tmp);
         lst_tmp2->type = (*iter)->type;
         i++;
@@ -128,19 +129,19 @@ t_input *split_and_add(t_input **list, t_input **iter)
     return ((*iter) = lst_tmp, *list);
 }
 
-t_input *money_expansion(t_input *list, t_data *data)
+t_input *money_expansion(t_input *list)
 {
     t_input *iter;
 
     iter = list;
     while(iter->value)
     {
-        if(iter->type == TOKEN_L_APP)
+        if(iter->type == TOKEN_HEREDOC)
         {
             iter = iter->next->next;
             continue;
         }
-        node_mod(iter, data);
+        node_mod(iter);
         list = split_and_add(&list, &iter);
         iter = iter->next;
     }
@@ -155,7 +156,7 @@ t_input *money_expansion(t_input *list, t_data *data)
 // //     }
 // //     else
 // //     {
-// //         ft_strnjoin()
+// //         my_strnjoin()
 // //     }
 // // }
 
@@ -191,9 +192,9 @@ t_input *money_expansion(t_input *list, t_data *data)
 //     {
 //         if(is_space(var[check->d_end]))
 //         {
-//             check->expand = ft_substr(var, check->d_start, check->d_end - check->d_start);
+//             check->expand = my_substr(var, check->d_start, check->d_end - check->d_start);
 //             printf("str : %s, %d to %d => %s<-\n", check->string, check->d_start,check->d_end, check->expand);
-//             check->string = ft_strnjoin(check->string, check->expand, ft_strlen(check->expand));
+//             check->string = my_strnjoin(check->string, check->expand, my_strlen(check->expand));
 //             free(check->expand);
 //             insert_node(list, check);
 //             check->string = NULL;
@@ -206,8 +207,8 @@ t_input *money_expansion(t_input *list, t_data *data)
 //     }
 //     if(var[check->d_end] == '\0')
 //     {
-//         check->expand = ft_substr(var, check->d_start, check->d_end - check->d_start);
-//         check->string = ft_strnjoin(check->string, check->expand, ft_strlen(check->expand));
+//         check->expand = my_substr(var, check->d_start, check->d_end - check->d_start);
+//         check->string = my_strnjoin(check->string, check->expand, my_strlen(check->expand));
 //         return(free(check->expand));
 //     }
 // }
@@ -218,17 +219,17 @@ t_input *money_expansion(t_input *list, t_data *data)
 //     char *tmp;
 //     char *tmp2;
 
-//     check->string = ft_strnjoin(check->string, list->value + check->start, (check->end - 1) - check->start);
+//     check->string = my_strnjoin(check->string, list->value + check->start, (check->end - 1) - check->start);
 //     check->end++;
 //     check->start = check->end;
-//     if(!ft_isalpha(list->value[check->end]) && list->value[check->end] != '_')
+//     if(!my_isalpha(list->value[check->end]) && list->value[check->end] != '_')
 //     {
-//         check->string = ft_strnjoin(check->string, "$", 1);
+//         check->string = my_strnjoin(check->string, "$", 1);
 //         return;
 //     }
-//     while(ft_isalnum(list->value[check->end]) || list->value[check->end] == '_')
+//     while(my_isalnum(list->value[check->end]) || list->value[check->end] == '_')
 //         check->end++;
-//     tmp = ft_substr(list->value, check->start, (check->end) - check->start);
+//     tmp = my_substr(list->value, check->start, (check->end) - check->start);
 //     tmp2 = getenv(tmp);
 //     free(tmp);
 //     check->start = check->end;
@@ -242,11 +243,11 @@ t_input *money_expansion(t_input *list, t_data *data)
 //     tmp = check->string;
 //     if(flag)
 //     {
-//         check->string = ft_strnjoin(check->string, list->value + check->start, (check->i - 1) - check->start);
+//         check->string = my_strnjoin(check->string, list->value + check->start, (check->i - 1) - check->start);
 //         check->start = check->i + 1;
 //     }
 //     else
-//         check->string = ft_strnjoin(check->string, list->value + check->start, (check->i) - check->start);
+//         check->string = my_strnjoin(check->string, list->value + check->start, (check->i) - check->start);
 //     free(tmp);
 // }
 
@@ -260,18 +261,18 @@ t_input *money_expansion(t_input *list, t_data *data)
 //     string_app(list, check, false);
 //     check->i += 2;
 //     check->start = check->i;
-//     if(!ft_isalpha(list->value[check->i]) && list->value[check->i] != '_')
+//     if(!my_isalpha(list->value[check->i]) && list->value[check->i] != '_')
 //     {
-//         check->string = ft_strnjoin(check->string, "$", 1);
+//         check->string = my_strnjoin(check->string, "$", 1);
 //         check->start = check->i--;
 //         return;
 //     }
-//     while(ft_isalnum(list->value[check->i]) || list->value[check->i] == '_')
+//     while(my_isalnum(list->value[check->i]) || list->value[check->i] == '_')
 //         check->i++;
-//     tmp = ft_substr(list->value, check->start, (check->i) - check->start);
+//     tmp = my_substr(list->value, check->start, (check->i) - check->start);
 //     printf("\nsubstr : %s\n", tmp);
 //     tmp2 = getenv(tmp);
-//     check->string = ft_strnjoin(check->string, tmp2, ft_strlen(tmp2));
+//     check->string = my_strnjoin(check->string, tmp2, my_strlen(tmp2));
 //     check->start = check->i;
 //     check->i--;
 //     free(tmp);

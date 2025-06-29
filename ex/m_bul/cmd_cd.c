@@ -3,41 +3,27 @@
 /*                                                        :::      ::::::::   */
 /*   cmd_cd.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 10:47:13 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:27:19 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:56:38 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-// #include "bul_cmd.h"
-
-#include "../../includes/Token_and_lex.h"
+#include "bul_cmd.h"
 
 char	*n_path(t_data *data, char *opeth)
 {
 	char *path;
-	char *tmpp;
 	char *home;
 
-	tmpp = NULL;
 	if (opeth[0] != '~')
 	{
-		path = ft_strdup(opeth);
+		path = my_strdup(opeth);
 		return (path);
 	}
 	home = gky_env(data->env, "HOME");
-	if (opeth[1] == '/')
-		path = ft_sstrjoin(home, &opeth[1]);
-	else
-	{
-		if (opeth[2] == '\0')
-			tmpp = ft_strdup(home);
-		else
-			tmpp = ft_sstrjoin(home, "/");
-		path = ft_sstrjoin(tmpp, &opeth[1]);
-		free(tmpp);
-	}
+	path = my_strjoin(home, &opeth[1]);
 	return (path);
 }
 
@@ -51,7 +37,7 @@ int cmd_cd(t_data *data, char **arg)
 	if (!arg[0] || arg[0][0] == '\0')
 	{
 		pmt = getenv("HOME");
-		tmp = ft_strdup(pmt);
+		tmp = my_strdup(pmt);
 	}
 	else
 		tmp = n_path(data, arg[0]);

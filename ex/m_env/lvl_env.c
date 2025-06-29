@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lvl_env.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/01 12:20:09 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:28:45 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/25 17:57:05 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "env.h"
 
 int	alldigit(char *num)
 {
@@ -19,7 +19,7 @@ int	alldigit(char *num)
 	i = 0;
 	while (num[i])
 	{
-		if (!ft_isdigit(num[i]) && num[i] != '-' && num[i] != '+')
+		if (!my_isdigit(num[i]) && num[i] != '-' && num[i] != '+')
 			return (1);
 		i++;
 	}

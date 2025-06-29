@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 10:35:49 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:27:35 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/06/05 13:15:31 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "bul_cmd.h"
 
 void	prn_all(int fd, char **arg)
 {
