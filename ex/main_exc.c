@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main_exc.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fd2 <fd2@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/24 20:06:48 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/30 14:29:31 by fd2              ###   ########.fr       */
+/*   Updated: 2025/07/01 01:37:19 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ int sec_exc(t_data *data, t_short *shart, int in, int ot)
         close(data->fd2);
     data->fd = 1;
     data->fd2 = 0;
+    return 0;
 }
 
 int main_exc(t_data *data, t_short *shart)

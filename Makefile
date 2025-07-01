@@ -54,16 +54,15 @@ ex/libft/ft_substr.c \
 ex/libft/ft_strlcat.c \
 ex/libft/ft_strlcpy.c \
 ex/libft/ft_strlen.c \
- ex/libft/ft_calloc.c \
- ex/libft/ft_strndup.c \
- ex/libft/ft_isdigit.c \
- ex/libft/ft_isalnum.c \
- ex/libft/ft_strdup.c \
- ex/libft/ft_bzero.c \
- ex/libft/ft_isalpha.c \
- ex/libft/ft_memset.c \
- ex/libft/ft_strcmp.c \
-# ex/libft/ft_bzero.c \
+ex/libft/ft_calloc.c \
+ex/libft/ft_strndup.c \
+ex/libft/ft_isdigit.c \
+ex/libft/ft_isalnum.c \
+ex/libft/ft_strdup.c \
+ex/libft/ft_bzero.c \
+ex/libft/ft_isalpha.c \
+ex/libft/ft_memset.c \
+ex/libft/ft_strcmp.c \
 	  \
 
 OBJ = $(SRC:.c=.o)

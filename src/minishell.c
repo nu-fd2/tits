@@ -6,7 +6,7 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/24 20:09:24 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 01:55:26 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,8 @@ void manager(t_data *data, char *line)
     input = star_expansion(input);
     striper(input);
     shart = last_lst_creater(input);
-    lst_print2(shart);
+
+    // lst_print2(shart);
 
     // TS AHHHHHHH
     //fnc(shart)
@@ -47,8 +48,11 @@ int prompt_msg(t_data *data)
     {
         write(1, "exit\n", 5);
         free(line);
-        exit(0);
+        // exit(0);
+        return 0;
     }
+    if (!line[0])
+        return (free(line), 1);
     add_history(line);
     manager(data, line);
     free(line);
@@ -93,6 +97,8 @@ int main(int ac, char **av, char **env)
             ret = 0;
             break;
         }
+        if (ret == 0)
+            break;
     }
     fre_env(data->env);
     free(data);
