@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   delimiters.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:41:27 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/27 21:23:06 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:54:03 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int handle_par(t_input **list, char *line)
 
 	if(line[0] == '(')
 	{
-		ft_lstadd_back(list, ft_strdup("("));
+		ft_lstadd_back(list, my_strdup("("));
 		tmp = ft_lstlast(*list);
 		tmp->type = TOKEN_O_PAR;
 		tmp->category = TOKEN_DELIMITER;
@@ -26,7 +26,7 @@ int handle_par(t_input **list, char *line)
 	}
 	else if(line[0] == ')')
 	{
-		ft_lstadd_back(list, ft_strdup(")"));
+		ft_lstadd_back(list, my_strdup(")"));
 		tmp = ft_lstlast(*list);
 		tmp->type = TOKEN_C_PAR;
 		tmp->category = TOKEN_DELIMITER;
@@ -52,7 +52,7 @@ int handle_word_quotes(t_input **list, char *line, bool s_quote, int i)
 		return i;
 	}
 	i++;
-	ft_lstadd_back(list, ft_strndup(line, i));
+	ft_lstadd_back(list, my_strndup(line, i));
 	ft_lstlast(*list)->category = TOKEN_WORD;
 	return (i);
 }
@@ -81,7 +81,7 @@ int handle_quotes(t_input **list, char *line)
 	}
 	if(check == true)
 	{
-		ft_lstadd_back(list, ft_strndup(line, i));
+		ft_lstadd_back(list, my_strndup(line, i));
 		ft_lstlast(*list)->category = TOKEN_WORD;
 	}
 	return i;
@@ -93,7 +93,7 @@ int handle_quotes(t_input **list, char *line)
 
 // 	if(line[0] == '\'')
 // 	{
-// 		ft_lstadd_back(list, ft_strdup("\'"));
+// 		ft_lstadd_back(list, my_strdup("\'"));
 // 		tmp = ft_lstlast(*list);
 // 		tmp->type = TOKEN_S_QUOTE;
 // 		tmp->category = TOKEN_DELIMITER;
@@ -101,7 +101,7 @@ int handle_quotes(t_input **list, char *line)
 // 	}
 // 	else if(line[0] == '"')
 // 	{
-// 		ft_lstadd_back(list, ft_strdup("\""));
+// 		ft_lstadd_back(list, my_strdup("\""));
 // 		tmp = ft_lstlast(*list);
 // 		tmp->type = TOKEN_D_QUOTE;
 // 		tmp->category = TOKEN_DELIMITER;

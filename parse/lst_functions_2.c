@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_functions_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:24:05 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/29 19:21:29 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:56:07 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	lst_print_2(t_input *head)
 				printf("\033[1;34m%s\033[0m", "L_RED");
 			else if(head->type == TOKEN_R_APP)
 				printf("\033[1;34m%s\033[0m", "R_APP");
-			else if(head->type == TOKEN_L_APP)
+			else if(head->type == TOKEN_HEREDOC)
 				printf("\033[1;34m%s\033[0m", "L_APP");
 			else if(head->type == TOKEN_PIPE)
 				printf("\033[1;34m%s\033[0m", "PIPE");
@@ -91,12 +91,14 @@ void	ft_lstadd_back_2(t_short **lst, t_blah blah)
 {
     t_short *new;
 
-	new = ft_calloc(sizeof(t_short), 1);
+	new = my_calloc(sizeof(t_short), 1);
 	if (new == NULL)
 		return ;
+	new->red_size = blah.size;
 	new->args = blah.args2;
     new->reds = blah.reds2;
 	new->ambiguous = blah.ambiguous;
+	new->expanded = blah.expanded;
 	if (!lst || !new)
 		return ;
 	if (!*lst)
@@ -129,7 +131,7 @@ void ft_lstfree_2(t_short *lst)
         tmp = lst;
         while(lst->args && lst->args[i])
             free(lst->args[i++]);
-        while(lst->reds && lst->reds[j])
+        while(lst->reds && j < lst->red_size)
             free(lst->reds[j++]);
 		if(lst->args)
 			free(lst->args);

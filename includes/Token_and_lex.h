@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Token_and_lex.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fd2 <fd2@student.42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:27:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/27 17:05:52 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 01:19:12 by fd2              ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ typedef enum s_tokens
     TOKEN_R_RED,
     TOKEN_L_RED,
     TOKEN_R_APP,
-    TOKEN_L_APP,
+    TOKEN_HEREDOC,
     TOKEN_PIPE,
     TOKEN_O_PAR,
     TOKEN_C_PAR,
@@ -81,7 +81,7 @@ typedef struct s_data
 	pid_t			kid;
 	char			**chr_env;
 	t_env			*env;
-    t_pips          *pips;
+    // t_pips          *pips;
 }					t_data;
 
 typedef struct s_env
@@ -92,12 +92,12 @@ typedef struct s_env
 	struct s_env	*next;
 }					t_env;
 
-typedef struct s_pips
-{
-    int         i_pip;
-    int         o_pip;
-    t_pips      *next;
-}               t_pips;
+// typedef struct s_pips
+// {
+//     int         i_pip;
+//     int         o_pip;
+//     t_pips      *next;
+// }               t_pips;
 
 //================================================
 
@@ -106,6 +106,7 @@ typedef struct s_nodes
     int index;
     int quotes; // 0 : no problems, 1 : open single quotes, 2 : open double quotes
     int strip;
+    bool star;
     t_token type;
     t_token category;
     bool red_app;
@@ -125,6 +126,8 @@ typedef struct s_latest
     struct s_latest *prev;
     struct s_latest *tail;
     bool ambiguous;
+    int red_size;
+    bool expanded;
 }   t_short;
 
 typedef struct s_size
@@ -162,6 +165,8 @@ typedef struct s_blah
     char **args2;
     char **reds2;
     bool ambiguous;
+    int size;
+    bool expanded;
 } t_blah;
 typedef struct s_star
 {
@@ -171,14 +176,14 @@ typedef struct s_star
 }   t_star;
 
 t_input *tokenize(char *line);
-void	*ft_calloc(size_t count, size_t size);
-char	*ft_strdup(const char *s1);
-char	*ft_strndup(const char *s1, int n);
-int	ft_strcmp(const char *s1, const char *s2);
+void	*my_calloc(size_t count, size_t size);
+char	*my_strdup(const char *s1);
+char	*my_strndup(const char *s1, int n);
+int	my_strcmp(const char *s1, const char *s2);
 void	ft_lstadd_back(t_input **lst, char *content);
 void	ft_lstadd_back_2(t_short **lst, t_blah blah);
 t_input	*ft_lstlast(t_input *lst);
-size_t	ft_strlen(const char *s);
+size_t	my_strlen(const char *s);
 void ft_lstfree(t_input *lst);
 bool is_space(char c);
 void	lst_print(t_input *bruh);
@@ -187,17 +192,17 @@ void ft_lstfree_2(t_short *lst);
 t_short	*ft_lstlast_2(t_short *lst);
 void	ft_lstadd_back_2(t_short **lst, t_blah blah);
 void lst_assign_2(t_short **new, t_short **lst);
-char	*ft_strjoin(char *s1, char *s2);
-char	*ft_strnjoin(char *s1, char *s2, int n);
-int	ft_isalpha(int c);
-int	ft_isalnum(int c);
+char	*my_strjoin(char *s1, char *s2);
+char	*my_strnjoin(char *s1, char *s2, int n);
+int	my_isalpha(int c);
+int	my_isalnum(int c);
 int handle_pipe(t_input **list, char *line);
 int handle_red(t_input **list, char *line);
 int handle_app(t_input **list, char *line);
 int handle_quotes(t_input **list, char *line);
 int handle_word(t_input **list, char *line);
 bool check_limit(char *line, t_quotes *check);
-char	*ft_substr(char const *s, unsigned int start, size_t len);
+char	*my_substr(char const *s, unsigned int start, size_t len);
 
 void filter(t_input *list);
 void checker(char *line);
@@ -205,8 +210,8 @@ void seperator(t_input *list);
 t_short *transformer(t_input *list);
 t_input *money_expansion(t_input *list, t_data *data);
 t_input *star_expansion(t_input *list);
-char	**ft_split(char const *s);
-void striper(t_input *list);
+char	**my_split(char const *s);
+t_input *striper(t_input *list);
 void lst_print2(t_short *list);
 int ft_checker(char c, int quote_flag);
 t_short *last_lst_creater(t_input *lst);
@@ -239,6 +244,9 @@ char		*ft_ssubstr(char const *s, unsigned int start, size_t len);//
 char		*ft_sstrjoin(char const *s1, char const *s2);//
 void		ft_putchar_fd(char c, int fd);//
 void		ft_putstr_fd(char *s, int fd);//
+int	ft_isalpha(int c);
+int	ft_isalnum(int c);
+char	*ft_strndup(const char *s1, size_t n);
 
 int	cmd_export(t_data *data, char **arg);
 int	cmd_unset(t_data *data, char **arg);

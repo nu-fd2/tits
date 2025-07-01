@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   last_lst_creater.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: skully <skully@student.42.fr>              +#+  +:+       +#+        */
+/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 13:35:00 by mdakni            #+#    #+#             */
-/*   Updated: 2025/05/30 14:44:48 by skully           ###   ########.fr       */
+/*   Updated: 2025/06/25 17:56:07 by mdakni           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,20 @@
 
 t_blah check_ambiguous(t_input *lst, t_blah blah)
 {
+    blah.size = 0;
     if(lst->type == TOKEN_FILE && lst->next)
     {
         if(lst->next->type == TOKEN_FILE)
             blah.ambiguous = true;
-        }
-        return blah;
+    }
+    if(lst->expand == true)
+        blah.expanded = true;
+    return blah;
 }
 
 void check_token_sizes(t_input *lst, t_blah *blah)
 {
-    while(lst && lst->value)
+    while(lst->next && lst->type != EOF)
     {
         if(lst->value && lst->value[0] == '\0')
         {
@@ -48,17 +51,22 @@ void assign_strings(t_blah *blah, t_input *lst)
 {
     blah->args_i = 0;
     blah->reds_i = 0;
-    while(lst && lst->value)
+    while(lst->next && lst->type != EOF)
     {
-        // printf("lst->value : %s\n", lst->value);
-        if(lst->type == TOKEN_CMD && blah->args2 != NULL)
-            blah->args2[blah->args_i++] = ft_strdup(lst->value);
-        else if(lst->type == TOKEN_ARG && blah->args2 != NULL)
-            blah->args2[blah->args_i++] = ft_strdup(lst->value);
+        if(lst->type == TOKEN_CMD && lst->value && blah->args2 != NULL)
+            blah->args2[blah->args_i++] = my_strdup(lst->value);
+        else if(lst->type == TOKEN_ARG  && lst->value && blah->args2 != NULL)
+            blah->args2[blah->args_i++] = my_strdup(lst->value);
         else if(lst->red_app == true && blah->reds2 != NULL)
-            blah->reds2[blah->reds_i++] = ft_strdup(lst->value);
+        {
+            blah->reds2[blah->reds_i++] = my_strdup(lst->value);
+            blah->size++;
+        }
         else if(lst->type == TOKEN_FILE && blah->reds2 != NULL)
-            blah->reds2[blah->reds_i++] = ft_strdup(lst->value);
+        {
+            blah->reds2[blah->reds_i++] = my_strdup(lst->value);
+            blah->size++;
+        }
         lst = lst->next;
     }
     if(blah->args2)
@@ -71,16 +79,17 @@ void create_node(t_blah *blah, t_input *head)
 {
     // while(lst->prev)
     //     lst = lst->prev;
+
     handle_clear(head, blah);
     // lst_print(head);
     seperator(head);
     check_token_sizes(head, blah);
     if(blah->args)
-        blah->args2 = ft_calloc(blah->args + 1, sizeof(char *));
+        blah->args2 = my_calloc(blah->args + 1, sizeof(char *));
     else
         blah->args2 = NULL;
     if(blah->reds)
-        blah->reds2 = ft_calloc(blah->reds + 1, sizeof(char *));
+        blah->reds2 = my_calloc(blah->reds + 1, sizeof(char *));
     else
         blah->reds2 = NULL;
     assign_strings(blah, head);
@@ -100,7 +109,7 @@ t_short *last_lst_creater(t_input *lst)
         blah.args = 0;
         blah.reds = 0;
         head = lst;
-        while(lst->value && lst->type != TOKEN_PIPE)
+        while(lst->next && lst->type != TOKEN_PIPE)
         {
             blah = check_ambiguous(lst, blah);
             lst = lst->next;
