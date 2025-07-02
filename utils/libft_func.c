@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 13:47:16 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/25 17:55:01 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Token_and_lex.h"
+#include "../includes/header.h"
 
 bool is_space(char c)
 {

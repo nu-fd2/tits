@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func3.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 20:22:32 by skully            #+#    #+#             */
-/*   Updated: 2025/06/25 17:58:01 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Token_and_lex.h"
+#include "../includes/header.h"
 
 // int quote_int(char c, int quotes)
 // {

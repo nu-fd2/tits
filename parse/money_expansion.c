@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   money_expansion.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fd2 <fd2@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 14:50:07 by skully            #+#    #+#             */
-/*   Updated: 2025/07/01 00:57:52 by fd2              ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Token_and_lex.h"
+#include "../includes/header.h"
 
 void expand_and_append(t_input *list, t_flags *check, t_data *data)
 {

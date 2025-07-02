@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   lst_functions_2.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/09 12:24:05 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/25 17:56:07 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Token_and_lex.h"
+#include "../includes/header.h"
 
 void	lst_print_2(t_input *head)
 {

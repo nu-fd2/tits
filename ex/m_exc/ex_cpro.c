@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/13 01:56:16 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/20 06:47:44 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/02 17:55:46 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "../../includes/header.h"
 
 
 int	ex_cpro(t_data *data, char *cmd, char **arg)
@@ -23,6 +23,7 @@ int	ex_cpro(t_data *data, char *cmd, char **arg)
 
 	sta = 0;
 
+	printf("%s %d %d\n", cmd, data->fd2, data->fd);
 	kid = fork();
 	if (kid < 0)
 		return 1;
@@ -38,7 +39,6 @@ int	ex_cpro(t_data *data, char *cmd, char **arg)
 	else
 	{
         waitpid(kid, &sta, 0);
-		printf("hi\n");
 		firekeeper = WIFEXITED(sta);
 		firekeeper2 = WEXITSTATUS(sta);
 		if (firekeeper)

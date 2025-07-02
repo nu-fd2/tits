@@ -6,14 +6,14 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/23 05:18:51 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:14:57 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef M_EXEC_H
 #define M_EXEC_H
 
-#include "../includes/Token_and_lex.h"
+#include "../includes/header.h"
 
 #include "libft/libft.h"
 #include "m_bul/bul_cmd.h"

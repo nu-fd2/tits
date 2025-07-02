@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/30 17:36:40 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:29:21 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "../../includes/header.h"
 
 
 int	ex_synau(t_data *data, char **arg)

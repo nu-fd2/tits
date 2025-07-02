@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 21:52:25 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:28:06 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "../../includes/header.h"
 
 
 int del_env(t_env *env, char *key)

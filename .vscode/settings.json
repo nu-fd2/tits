@@ -7,7 +7,7 @@
         "ex_exc.h": "c",
         "env.h": "c",
         "hed_red.h": "c",
-        "token_and_lex.h": "c",
+        "header.h": "c",
         "history.h": "c",
         "stdio.h": "c",
         "iterator": "c"

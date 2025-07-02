@@ -3,14 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   libft_func2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mdakni <mdakni@student.42.fr>              +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/01 17:59:49 by mdakni            #+#    #+#             */
-/*   Updated: 2025/06/25 17:57:35 by mdakni           ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Token_and_lex.h"
+#include "../includes/header.h"
 
 void	*my_memset(void *b, int c, size_t len)
 {

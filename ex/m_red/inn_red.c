@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/18 10:25:17 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/22 22:44:04 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 18:11:41 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "../../includes/header.h"
 
 
 int	inn_red(t_data *data, char *red)
@@ -19,7 +19,11 @@ int	inn_red(t_data *data, char *red)
 
 	neo = -1;
 	if (access(red, F_OK) == -1)
-		write(2, "makaynx\n", 9);
+	{
+		ft_putstr_fd(red, 2);
+		ft_putstr_fd(" not found\n", 2);
+		return 1;
+	}
 	else if (access(red, R_OK) == -1)
 	{
 		write(2, "Permission denied\n", 19);

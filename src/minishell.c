@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/28 13:16:23 by mdakni            #+#    #+#             */
-/*   Updated: 2025/07/01 01:55:26 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 18:21:13 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Token_and_lex.h"
+#include "../includes/header.h"
 
 void manager(t_data *data, char *line)
 {
@@ -26,7 +26,7 @@ void manager(t_data *data, char *line)
     striper(input);
     shart = last_lst_creater(input);
 
-    // lst_print2(shart);
+    lst_print2(shart);
 
     // TS AHHHHHHH
     //fnc(shart)

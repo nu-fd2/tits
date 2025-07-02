@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/06/26 17:09:19 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/27 18:38:48 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "../../includes/header.h"
 
 t_pips	*neo_pip()
 {

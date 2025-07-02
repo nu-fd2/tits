@@ -6,11 +6,11 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 16:17:57 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:27:47 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 21:59:03 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/Token_and_lex.h"
+#include "../../includes/header.h"
 
 
 char *key_gen(char *arg)
@@ -19,11 +19,7 @@ char *key_gen(char *arg)
 
 	i = 0;
 	while (arg[i] != '=' && arg[i] != '\0')
-	{
-		if (!ft_isalpha(arg[i]) && arg[i] != '_')
-			return (NULL);
 		i++;
-	}
 	return (ft_strndup(arg, i));
 }
 
@@ -68,6 +64,12 @@ int	cmd_export(t_data *data, char **arg)
 		key = key_gen(arg[i]);
 		if (!key)
 			ret = 1;
+		if (!ft_isalpha(arg[i][0]) && arg[i][0] != '_')
+		{
+			ft_putstr_fd(key, 2);
+			ft_putstr_fd("ts can't be\n", 2);
+			ret = 1;
+		}
 		if (key && key[0] != '\0')
 		{
 			s = prt_gen(arg[i]);
@@ -76,7 +78,5 @@ int	cmd_export(t_data *data, char **arg)
 		}
 		i++;
 	}
-	free(key);
-	free(val);
-	return (ret);
+	return (free(key), free(val), ret);
 }

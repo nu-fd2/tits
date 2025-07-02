@@ -6,13 +6,13 @@
 /*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/18 10:47:13 by oel-mado          #+#    #+#             */
-/*   Updated: 2025/06/19 17:27:19 by oel-mado         ###   ########.fr       */
+/*   Updated: 2025/07/01 14:56:40 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 // #include "bul_cmd.h"
 
-#include "../../includes/Token_and_lex.h"
+#include "../../includes/header.h"
 
 char	*n_path(t_data *data, char *opeth)
 {

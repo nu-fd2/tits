@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Token_and_lex.h                                    :+:      :+:    :+:   */
+/*   header.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fd2 <fd2@student.42.fr>                    +#+  +:+       +#+        */
+/*   By: oel-mado <oel-mado@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/26 23:27:37 by mdakni            #+#    #+#             */
-/*   Updated: 2025/07/01 01:19:12 by fd2              ###   ########.fr       */
+/*   Updated: 2025/07/01 14:55:22 by oel-mado         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@
 # include <stdint.h>
 #include <sys/wait.h>
 
-// #ifdef linux
-// #include <readline/history.h>
-// #include <readline/readline.h>
-// #else
+#ifdef linux
+#include <readline/history.h>
+#include <readline/readline.h>
+#else
 #include "../readline/history.h"
 #include "../readline/readline.h"
-// #endif
+#endif
 
 
 // Tokens used to categorise each word in the input string.
